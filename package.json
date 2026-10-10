@@ -1,0 +1,10 @@
+{
+  "name": "hridita-haq-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hridita Haq’s editorial fashion portfolio — opening section",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "check": "node --check dist/app.js"
+  }
+}
