@@ -1,6 +1,6 @@
 # Hridita Haq — Fashion Designer
 
-A single-page fashion portfolio with an ivory editorial introduction and a video-referenced runway Collections section. Remaining sections will follow their own supplied references.
+A single-page fashion portfolio with an ivory editorial introduction, a video-referenced runway Collections section, and an editorial About section. Remaining sections will follow their own supplied references.
 
 ## Preview
 
@@ -13,6 +13,8 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/app.js`: mobile navigation, upcoming-section dialogs, and pointer motion.
 - `dist/collections.css`: responsive runway depth, look details, and collection dialog layouts.
 - `dist/collections.js`: six-look carousel data, autoplay, keyboard controls, drag/swipe, and details.
+- `dist/about.css`: editorial studio image, introduction, signature, and responsive About layout.
+- `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
 - `dist/assets/`: self-hosted fonts and imagery.
 
 The introduction contains an explicitly labeled AI-generated editorial placeholder, not a photo of Hridita. Replace it with her approved portrait and update the alt text and caption together. No services, project history, availability, or contact information have been invented. Navigation to unfinished sections opens clearly labeled coming-soon dialogs. Replace those with section anchors as each section is built.
@@ -28,6 +30,8 @@ Six fictional concept looks are visibly labeled as AI imagery, not Hridita's act
 On Windows, prepend the installed `C:\Program Files\Git\bin` to the environment PATH and set `TAR_OPTIONS=--force-local` when invoking the official Sites source helper. These settings allow its Bash packager to handle Windows archive paths.
 
 ## Assets
+
+The About introduction uses brief first-person draft copy, as authorized by the user. Only Hridita's name and fashion-designer role are confirmed; the creative approach is proposed copy to review, not a verified biography. No education, location, clients, awards, or career history are asserted. Replace the draft with her approved introduction when available. The studio still life is labeled as an AI illustration, not her actual workspace. Its generation prompt is in `about-provenance.md`.
 
 Fonts: Cormorant Garamond, DM Sans, and Allura, downloaded from Google Fonts. The portrait was created with built-in ImageGen; its prompt is in `asset-provenance.md`.
 
