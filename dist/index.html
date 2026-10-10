@@ -10,7 +10,9 @@
   <link rel="preload" href="./assets/cormorant-garamond.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/editorial-placeholder.png" as="image" fetchpriority="high">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./collections.css">
   <script src="./app.js" defer></script>
+  <script src="./collections.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -61,12 +63,54 @@
         </figure>
       </section>
 
-      <section class="work-preview" id="work" aria-labelledby="work-title">
+      <section class="work-preview collections" id="work" aria-labelledby="work-title">
         <div class="container work-heading">
-          <h2 id="work-title">Selected work <span class="work-index">(01—)</span></h2>
-          <button class="text-button" type="button" data-section="work">Explore the collections <span aria-hidden="true">↗</span></button>
+          <h2 id="work-title">Work / Collections <span class="work-index">(01—06)</span></h2>
+          <span class="runway-label">The runway <span aria-hidden="true">↔</span></span>
+          <span class="concept-label">Illustrative concepts · AI imagery</span>
         </div>
-        <div class="container work-next"><span class="fine-line" aria-hidden="true"></span><p>A new chapter is taking shape.<br><span>Selected collections, coming soon.</span></p><span class="tiny-flower" aria-hidden="true">✳</span></div>
+        <div class="container collection-experience" role="region" aria-roledescription="carousel" aria-label="Form and feeling, six illustrative fashion looks">
+          <div class="collection-stage">
+            <div class="runway-track" tabindex="0" aria-label="Runway. Use the left and right arrow keys to explore looks.">
+              <div class="collection-intro">
+                <p class="collection-kicker">A study in silhouette / 01</p>
+                <h3>Form &amp; feeling</h3>
+                <p>Structure meets softness.<br>Six expressions of a modern wardrobe.</p>
+              </div>
+              <div class="runway-floor" aria-hidden="true"></div>
+              <button class="runway-model" type="button" data-look="0" data-slot="active" aria-label="Open look 01: Quiet structure" style="--look-sheet:url('./assets/collections/looks-01-03.png');--look-cell:0"><span class="look-cutout" aria-hidden="true"></span><span class="model-shadow" aria-hidden="true"></span></button>
+              <button class="runway-model" type="button" data-look="1" data-slot="next" aria-label="View look 02: A softer rhythm" tabindex="-1" aria-hidden="true" style="--look-sheet:url('./assets/collections/looks-01-03.png');--look-cell:1"><span class="look-cutout" aria-hidden="true"></span><span class="model-shadow" aria-hidden="true"></span></button>
+              <button class="runway-model" type="button" data-look="2" data-slot="distant" aria-label="View look 03: The sculpted line" style="--look-sheet:url('./assets/collections/looks-01-03.png');--look-cell:2"><span class="look-cutout" aria-hidden="true"></span><span class="model-shadow" aria-hidden="true"></span></button>
+              <button class="runway-model" type="button" data-look="3" data-slot="far" aria-label="View look 04: In the fold" style="--look-sheet:url('./assets/collections/looks-04-06.png');--look-cell:0"><span class="look-cutout" aria-hidden="true"></span><span class="model-shadow" aria-hidden="true"></span></button>
+              <button class="runway-model" type="button" data-look="4" data-slot="middle" aria-label="View look 05: Rose in motion" style="--look-sheet:url('./assets/collections/looks-04-06.png');--look-cell:1"><span class="look-cutout" aria-hidden="true"></span><span class="model-shadow" aria-hidden="true"></span></button>
+              <button class="runway-model" type="button" data-look="5" data-slot="near" aria-label="View look 06: Earthbound" style="--look-sheet:url('./assets/collections/looks-04-06.png');--look-cell:2"><span class="look-cutout" aria-hidden="true"></span><span class="model-shadow" aria-hidden="true"></span></button>
+              <span class="runway-hint" aria-hidden="true"><span>↔</span> Drag to explore</span>
+            </div>
+            <aside class="look-details" aria-label="Current look details">
+              <div class="detail-heading"><span>In focus</span><span class="detail-number">01 / 06</span></div>
+              <button class="detail-photo detail-photo-main" type="button" aria-label="Open current look details"><span class="look-cutout" aria-hidden="true"></span><span class="detail-enlarge" aria-hidden="true">↗</span></button>
+              <div class="look-caption"><span class="look-category">Tailoring / Outerwear</span><h4 class="look-name">Quiet structure</h4><p class="look-summary">An oversized trench, drawn together at the waist.</p></div>
+              <div class="detail-divider"></div>
+              <div class="detail-study"><div class="detail-photo detail-photo-crop" aria-hidden="true"><span class="look-cutout"></span></div><p>Closer look<span class="look-detail-label">The belted silhouette</span></p></div>
+              <button class="look-open text-button" type="button">Explore this look <span aria-hidden="true">↗</span></button>
+            </aside>
+          </div>
+          <div class="runway-controls">
+            <div class="look-counter"><span>Look</span><strong class="current-look">01</strong><span class="counter-total">/ 06</span></div>
+            <div class="runway-pagination" aria-label="Choose a look">
+              <button type="button" aria-label="View look 01: Quiet structure" aria-current="true" data-select-look="0"><span></span></button>
+              <button type="button" aria-label="View look 02: A softer rhythm" data-select-look="1"><span></span></button>
+              <button type="button" aria-label="View look 03: The sculpted line" data-select-look="2"><span></span></button>
+              <button type="button" aria-label="View look 04: In the fold" data-select-look="3"><span></span></button>
+              <button type="button" aria-label="View look 05: Rose in motion" data-select-look="4"><span></span></button>
+              <button type="button" aria-label="View look 06: Earthbound" data-select-look="5"><span></span></button>
+            </div>
+            <div class="runway-buttons"><button class="runway-play" type="button" aria-label="Pause runway autoplay"><span class="play-symbol" aria-hidden="true">Ⅱ</span><span class="play-label">Pause</span></button><span class="control-divider" aria-hidden="true"></span><button class="runway-arrow runway-previous" type="button" aria-label="Previous look">←</button><button class="runway-arrow runway-next" type="button" aria-label="Next look">→</button></div>
+          </div>
+          <p class="collection-disclaimer">An illustrative collection for this portfolio preview. These AI-generated looks are not Hridita’s original work.</p>
+          <p class="sr-only runway-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <noscript><p class="container">Enable JavaScript to explore all six concept looks.</p></noscript>
       </section>
     </main>
   </div>
@@ -78,6 +122,11 @@
     <h2 id="dialog-title">A new chapter.</h2>
     <p id="dialog-description">This part of the portfolio is coming soon.</p>
     <button class="outline-button dialog-return" type="button">Back to the introduction <span aria-hidden="true">↗</span></button>
+  </dialog>
+  <dialog class="collection-dialog" aria-labelledby="collection-dialog-title" aria-describedby="collection-dialog-description">
+    <button class="collection-dialog-close" type="button" aria-label="Close look details">×</button>
+    <div class="collection-dialog-image" aria-hidden="true"><span class="look-cutout"></span></div>
+    <div class="collection-dialog-copy"><p class="collection-kicker">Form &amp; feeling / <span class="dialog-look-number">Look 01</span></p><h2 id="collection-dialog-title">Quiet structure</h2><p id="collection-dialog-description"></p><dl><div><dt>Focus</dt><dd class="dialog-look-focus"></dd></div><div><dt>Palette</dt><dd class="dialog-look-palette"></dd></div></dl><p class="dialog-concept-note">Illustrative concept · AI-generated imagery<br>Not an original collection by Hridita Haq.</p><button class="outline-button collection-dialog-back" type="button">Back to the runway <span aria-hidden="true">↗</span></button></div>
   </dialog>
 </body>
 </html>

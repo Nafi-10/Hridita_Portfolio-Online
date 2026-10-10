@@ -4,10 +4,8 @@ const dialog = document.querySelector('.section-dialog');
 const portraitFrame = document.querySelector('.portrait-frame');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Only the introduction is part of this first release. Keep future navigation
-// honest and interactive without inventing projects, services or contact details.
+// Remaining sections stay explicit previews until their content is supplied.
 const upcomingSections = {
-  work: { title: 'A new chapter.', description: 'A closer look at Hridita’s work is on its way. Selected collections will appear here soon.' },
   services: { title: 'Made with intention.', description: 'The services section is coming soon. More about Hridita’s fashion design practice will be shared here.' },
   about: { title: 'Meet Hridita.', description: 'Hridita Haq is a fashion designer. Her story, inspirations, and creative journey will be shared here soon.' },
   process: { title: 'Behind the design.', description: 'The process section is coming soon. A space for the ideas, details, and decisions behind the work.' },

@@ -2,9 +2,9 @@
   "name": "hridita-haq-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Hridita Haq’s editorial fashion portfolio — opening section",
+  "description": "Hridita Haq’s editorial fashion portfolio and interactive runway collections",
   "scripts": {
     "dev": "node serve.mjs",
-    "check": "node --check dist/app.js"
+    "check": "node --check dist/app.js && node --check dist/collections.js"
   }
 }
