@@ -13,7 +13,7 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/app.js`: mobile navigation, upcoming-section dialogs, and pointer motion.
 - `dist/collections.css`: responsive runway depth, look details, and collection dialog layouts.
 - `dist/collections.js`: six-look carousel data, autoplay, keyboard controls, drag/swipe, and details.
-- `dist/about.css`: editorial studio image, introduction, signature, and responsive About layout.
+- `dist/about.css`: three-panel portrait composition, introduction, signature, and responsive About layout.
 - `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
 - `dist/process.css`: seven editorial studio chapters, layered parallax transitions, responsive art direction, and the study dialog.
 - `dist/process.js`: chapter selection, keyboard and swipe controls, optional playback, and study dialogs.
@@ -53,7 +53,7 @@ VS Code Live Server is configured in `.vscode/settings.json` to serve `/dist` on
 
 ## Asset notes
 
-The About introduction uses brief first-person draft copy, as authorized by the user. Only Hridita's name and fashion-designer role are confirmed; the creative approach is proposed copy to review, not a verified biography. No education, location, clients, awards, or career history are asserted. Replace the draft with her approved introduction when available. The studio still life is labeled as an AI illustration, not her actual workspace. Its generation prompt is in `about-provenance.md`.
+The About introduction uses brief first-person draft copy, as authorized by the user. Only Hridita's name and fashion-designer role are confirmed; the creative approach is proposed copy to review, not a verified biography. No education, location, clients, awards, or career history are asserted. Replace the draft with her approved introduction when available. The About portrait uses the user's red-and-beige sari photograph, with its background removed using the built-in ImageGen tool. Three orange panels and a continuous face layer follow the supplied layout reference. The panel design is implemented with responsive CSS and SVG clipping; the cutout is a transparent PNG. Its exact editing prompt and source are recorded in `about-provenance.md`.
 
 Fonts: Cormorant Garamond, DM Sans, and Allura, downloaded from Google Fonts. The current portrait is user-supplied. Its provenance and the retired AI placeholder's generation prompt are in `asset-provenance.md`.
 

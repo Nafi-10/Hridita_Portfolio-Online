@@ -129,11 +129,29 @@
           </div>
           <div class="about-layout">
             <figure class="about-visual" data-about-reveal>
-              <div class="about-image-frame">
-                <img src="./assets/about-studio.png" alt="Illustrative AI-generated studio scene with ivory fabric, garment sketches, and textile swatches. Not Hridita’s actual studio." width="1024" height="1280" loading="lazy" decoding="async">
-                <span class="about-image-mark" aria-hidden="true">HH</span>
+              <div class="about-triptych">
+                <svg class="about-clip-definitions" width="0" height="0" aria-hidden="true" focusable="false">
+                  <defs>
+                    <clipPath id="about-panel-clip" clipPathUnits="objectBoundingBox">
+                      <rect x="0" y=".095" width=".322" height=".825"/>
+                      <rect x=".349" y="0" width=".302" height="1"/>
+                      <rect x=".678" y=".095" width=".322" height=".825"/>
+                    </clipPath>
+                    <clipPath id="about-portrait-clip" clipPathUnits="objectBoundingBox">
+                      <rect x="0" y=".095" width=".322" height=".825"/>
+                      <rect x=".349" y="0" width=".302" height="1"/>
+                      <rect x=".678" y=".095" width=".322" height=".825"/>
+                      <!-- Keep the face and hair continuous across the panel gaps. -->
+                      <rect x=".12" y=".06" width=".8" height=".49"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="about-triptych-backdrop" aria-hidden="true"></div>
+                <div class="about-portrait-mask">
+                  <img src="./assets/about-portrait-cutout.png" alt="Portrait of a woman in a red and beige sari, arranged across three warm orange panels." width="1086" height="1448" loading="lazy" decoding="async">
+                </div>
               </div>
-              <figcaption><span>A creative point of view</span><span>Illustrative studio · AI imagery</span></figcaption>
+              <figcaption><span>A creative point of view</span><span>Form / Detail / Individuality</span></figcaption>
             </figure>
             <div class="about-copy">
               <p class="about-eyebrow" data-about-reveal>A little about me</p>
