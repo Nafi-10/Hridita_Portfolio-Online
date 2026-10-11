@@ -21,7 +21,7 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/blog.js`: four draft articles, story selection, keyboard/swipe controls, optional playback, and accessible reading dialogs.
 - `dist/assets/`: self-hosted fonts and imagery.
 
-The introduction contains an explicitly labeled AI-generated editorial placeholder, not a photo of Hridita. Replace it with her approved portrait and update the alt text and caption together. No services, project history, availability, or contact information have been invented. Navigation to unfinished sections opens clearly labeled coming-soon dialogs. Replace those with section anchors as each section is built.
+The introduction uses the photograph supplied by the user on October 12, 2026, saved unchanged as `dist/assets/portrait-photo.png`. Its original photographer watermark remains in the file, and the caption credits Memory Mirage as shown in that watermark. The arched framing and pointer animation are applied through CSS. No services, project history, availability, or contact information have been invented. Navigation to unfinished sections opens clearly labeled coming-soon dialogs. Replace those with section anchors as each section is built.
 
 Motion respects the operating system’s reduced-motion preference. Dialogs support Escape, focus return, and native keyboard focus containment. Mobile navigation is a disclosure with accessible expanded state.
 
@@ -55,6 +55,6 @@ VS Code Live Server is configured in `.vscode/settings.json` to serve `/dist` on
 
 The About introduction uses brief first-person draft copy, as authorized by the user. Only Hridita's name and fashion-designer role are confirmed; the creative approach is proposed copy to review, not a verified biography. No education, location, clients, awards, or career history are asserted. Replace the draft with her approved introduction when available. The studio still life is labeled as an AI illustration, not her actual workspace. Its generation prompt is in `about-provenance.md`.
 
-Fonts: Cormorant Garamond, DM Sans, and Allura, downloaded from Google Fonts. The portrait was created with built-in ImageGen; its prompt is in `asset-provenance.md`.
+Fonts: Cormorant Garamond, DM Sans, and Allura, downloaded from Google Fonts. The current portrait is user-supplied. Its provenance and the retired AI placeholder's generation prompt are in `asset-provenance.md`.
 
 The Collections asset prompts and provenance are in `collections-provenance.md`.
