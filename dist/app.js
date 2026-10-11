@@ -7,7 +7,6 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 // Remaining sections stay explicit previews until their content is supplied.
 const upcomingSections = {
   services: { title: 'Made with intention.', description: 'The services section is coming soon. More about Hridita’s fashion design practice will be shared here.' },
-  process: { title: 'Behind the design.', description: 'The process section is coming soon. A space for the ideas, details, and decisions behind the work.' },
   contact: { title: 'Let’s create together.', description: 'Contact details will be added soon. This portfolio is still taking shape—thank you for being here.' },
 };
 
