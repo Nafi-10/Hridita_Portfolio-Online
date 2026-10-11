@@ -21,7 +21,6 @@
   let active = 0;
   let userPaused = motion.matches;
   let inView = false;
-  let hovered = false;
   let focusWithin = false;
   let timer;
   let progress;
@@ -38,7 +37,7 @@
   function schedule() {
     clearTimeout(timer);
     progress?.cancel();
-    const playing = !userPaused && inView && !hovered && !focusWithin && !document.hidden && !modal.open;
+    const playing = !userPaused && inView && !focusWithin && !pointerStart && !document.hidden && !modal.open;
     playButton.setAttribute('aria-label', userPaused ? 'Play runway autoplay' : 'Pause runway autoplay');
     section.querySelector('.play-symbol').textContent = userPaused ? '▷' : 'Ⅱ';
     section.querySelector('.play-label').textContent = userPaused ? 'Play' : 'Pause';
@@ -52,7 +51,6 @@
 
   function select(index, manual = true) {
     active = (index + looks.length) % looks.length;
-    if (manual) userPaused = true;
     const look = looks[active];
     models.forEach((model, index) => {
       const slot = slotNames[(active - index + looks.length) % looks.length];
@@ -80,7 +78,6 @@
 
   function openLook(opener) {
     const look = looks[active];
-    userPaused = true;
     modalOpener = opener;
     applyLook(modal.querySelector('.collection-dialog-image'), look);
     modal.querySelector('.dialog-look-number').textContent = `Look ${number(active)}`;
@@ -103,9 +100,8 @@
   section.querySelector('.runway-previous').addEventListener('click', () => select(active - 1));
   playButton.addEventListener('click', () => {
     userPaused = !userPaused;
-    // An explicit Play request takes precedence over the button's current
-    // hover/focus. Later pointer or focus entry pauses the runway normally.
-    if (!userPaused) { hovered = false; focusWithin = false; }
+    // An explicit Play action overrides the control's keyboard focus.
+    if (!userPaused) focusWithin = false;
     schedule();
   });
   section.querySelectorAll('.look-open, .detail-photo-main').forEach((button) => button.addEventListener('click', () => openLook(button)));
@@ -121,6 +117,7 @@
     if (!event.isPrimary || event.button !== 0) return;
     pointerStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
     suppressClick = false;
+    schedule();
   });
   track.addEventListener('pointermove', (event) => {
     if (!pointerStart || event.pointerId !== pointerStart.id) return;
@@ -139,18 +136,21 @@
     if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.25) select(active + (dx < 0 ? 1 : -1));
     pointerStart = undefined;
     track.classList.remove('is-dragging');
+    schedule();
     setTimeout(() => { suppressClick = false; }, 0);
   });
   track.addEventListener('pointercancel', () => {
     pointerStart = undefined;
     suppressClick = false;
     track.classList.remove('is-dragging');
+    schedule();
+  });
+  track.addEventListener('pointerleave', () => {
+    if (pointerStart && !track.classList.contains('is-dragging')) { pointerStart = undefined; schedule(); }
   });
 
-  section.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
-  section.addEventListener('pointerleave', () => { hovered = false; schedule(); });
-  section.addEventListener('focusin', () => { focusWithin = true; schedule(); });
-  section.addEventListener('focusout', () => queueMicrotask(() => { focusWithin = section.contains(document.activeElement); schedule(); }));
+  section.addEventListener('focusin', (event) => { focusWithin = event.target.matches(':focus-visible') && !playButton.contains(event.target); schedule(); });
+  section.addEventListener('focusout', () => queueMicrotask(() => { focusWithin = section.contains(document.activeElement) && document.activeElement.matches(':focus-visible') && !playButton.contains(document.activeElement); schedule(); }));
   document.addEventListener('visibilitychange', schedule);
   motion.addEventListener('change', () => { if (motion.matches) userPaused = true; schedule(); });
   compact.addEventListener('change', () => select(active, false));

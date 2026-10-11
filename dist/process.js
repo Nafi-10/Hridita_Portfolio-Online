@@ -9,9 +9,8 @@
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const cursor = stage.querySelector('.studio-drag-cursor');
   let current = 0;
-  let userPaused = true;
+  let userPaused = motion.matches;
   let inView = false;
-  let hovered = false;
   let focused = false;
   let timer;
   let drag;
@@ -21,7 +20,7 @@
 
   function schedule() {
     clearTimeout(timer);
-    const playing = !userPaused && inView && !hovered && !focused && !document.hidden && !modal.open;
+    const playing = !userPaused && inView && !focused && !drag && !document.hidden && !modal.open;
     section.dataset.playing = String(playing);
     play.setAttribute('aria-label', userPaused ? 'Play studio journal' : 'Pause studio journal');
     play.firstElementChild.textContent = userPaused ? '▷' : 'Ⅱ';
@@ -32,7 +31,6 @@
   function select(index, manual = true) {
     const next = (index + scenes.length) % scenes.length;
     const direction = index > current ? 1 : -1;
-    if (manual) userPaused = true;
     if (next !== current) {
       // Stage the incoming layers before starting their parallax transition.
       scenes[next].style.setProperty('--direction', String(direction));
@@ -69,8 +67,8 @@
   section.querySelector('.studio-next').addEventListener('click', () => select(current + 1));
   play.addEventListener('click', () => {
     userPaused = !userPaused;
-    // An explicit Play action overrides the current hover and keyboard focus.
-    if (!userPaused) { hovered = false; focused = false; }
+    // An explicit Play action overrides the control's keyboard focus.
+    if (!userPaused) focused = false;
     schedule();
   });
   stage.addEventListener('keydown', (event) => {
@@ -83,6 +81,7 @@
     if (!event.isPrimary || event.button !== 0 || event.target.closest('button, a')) return;
     drag = { x: event.clientX, y: event.clientY, id: event.pointerId, horizontal: false };
     suppressClick = false;
+    schedule();
   });
   stage.addEventListener('pointermove', (event) => {
     if (event.pointerType === 'mouse' && !motion.matches) {
@@ -94,7 +93,7 @@
     if (!drag || event.pointerId !== drag.id) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
-    if (!drag.horizontal && Math.abs(dy) > 14 && Math.abs(dy) > Math.abs(dx)) { drag = null; return; }
+    if (!drag.horizontal && Math.abs(dy) > 14 && Math.abs(dy) > Math.abs(dx)) { drag = null; schedule(); return; }
     if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy) * 1.25) {
       drag.horizontal = true;
       stage.classList.add('is-dragging');
@@ -109,15 +108,15 @@
     drag = null;
     stage.classList.remove('is-dragging');
     if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+    schedule();
   }
   stage.addEventListener('pointerup', finishDrag);
-  stage.addEventListener('pointercancel', () => { drag = null; stage.classList.remove('is-dragging'); });
-  stage.addEventListener('pointerleave', () => { stage.classList.remove('has-pointer'); if (!stage.classList.contains('is-dragging')) drag = null; });
+  stage.addEventListener('pointercancel', () => { drag = null; stage.classList.remove('is-dragging'); schedule(); });
+  stage.addEventListener('pointerleave', () => { stage.classList.remove('has-pointer'); if (!stage.classList.contains('is-dragging') && drag) { drag = null; schedule(); } });
   stage.addEventListener('click', (event) => { if (suppressClick) { event.preventDefault(); event.stopPropagation(); suppressClick = false; } }, true);
 
   scenes.forEach((scene) => scene.querySelector('.studio-open').addEventListener('click', (event) => {
     opener = event.currentTarget;
-    userPaused = true;
     const picture = scene.querySelector('.studio-photo-main');
     modal.querySelector('.studio-art').style.cssText = picture.querySelector('.studio-art').style.cssText;
     modal.querySelector('.studio-dialog-photo').setAttribute('aria-label', picture.getAttribute('aria-label'));
@@ -137,10 +136,8 @@
   });
   modal.addEventListener('close', () => { document.body.classList.remove('modal-open'); opener?.focus({ preventScroll: true }); schedule(); });
   const experience = section.querySelector('.studio-experience');
-  experience.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
-  experience.addEventListener('pointerleave', () => { hovered = false; schedule(); });
-  experience.addEventListener('focusin', () => { focused = true; schedule(); });
-  experience.addEventListener('focusout', (event) => { focused = experience.contains(event.relatedTarget); schedule(); });
+  experience.addEventListener('focusin', (event) => { focused = event.target.matches(':focus-visible') && !play.contains(event.target); schedule(); });
+  experience.addEventListener('focusout', () => queueMicrotask(() => { focused = experience.contains(document.activeElement) && document.activeElement.matches(':focus-visible') && !play.contains(document.activeElement); schedule(); }));
   document.addEventListener('visibilitychange', schedule);
   let resizeFrame;
   window.addEventListener('resize', () => {

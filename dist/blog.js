@@ -60,7 +60,6 @@
   let busy = false;
   let playing = false;
   let visible = false;
-  let hovered = false;
   let focused = false;
   let timer;
   let flightAnimation;
@@ -70,7 +69,7 @@
 
   function schedule() {
     clearTimeout(timer);
-    if (playing && visible && !hovered && !focused && !busy && !document.hidden && !reader.open) {
+    if (playing && visible && !focused && !gesture && !busy && !document.hidden && !reader.open) {
       timer = setTimeout(() => select(current + 1, true), 6500);
     }
   }
@@ -108,10 +107,9 @@
   }
 
   function select(index, automatic = false) {
-    if (!automatic) setPlaying(false);
     if (busy) return;
     const target = (index + stories.length) % stories.length;
-    if (target === current) return;
+    if (target === current) { schedule(); return; }
     const bounds = stage.getBoundingClientRect();
     const start = cards[target].getBoundingClientRect();
     current = target;
@@ -157,7 +155,10 @@
   cards.forEach((card) => card.addEventListener('click', () => select(Number(card.dataset.story))));
   previous.addEventListener('click', () => select(current - 1));
   next.addEventListener('click', () => select(current + 1));
-  play.addEventListener('click', () => setPlaying(!playing));
+  play.addEventListener('click', () => {
+    if (!playing) focused = false;
+    setPlaying(!playing);
+  });
   stage.addEventListener('keydown', (event) => {
     const destinations = { ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: stories.length - 1 };
     if (!(event.key in destinations)) return;
@@ -196,6 +197,7 @@
   stage.addEventListener('pointerdown', (event) => {
     if (event.button !== 0 || event.target.closest('.blog-read, .blog-controls')) return;
     gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, horizontal: false };
+    schedule();
   });
   stage.addEventListener('pointermove', (event) => {
     if (!gesture || gesture.id !== event.pointerId) return;
@@ -217,17 +219,17 @@
     }
     gesture = null;
     if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+    schedule();
   });
-  stage.addEventListener('pointercancel', () => { gesture = null; });
+  stage.addEventListener('pointercancel', () => { gesture = null; schedule(); });
+  stage.addEventListener('pointerleave', () => { if (gesture && !gesture.horizontal) { gesture = null; schedule(); } });
   stage.addEventListener('click', (event) => {
     if (Date.now() >= suppressClickUntil) return;
     event.preventDefault();
     event.stopPropagation();
   }, true);
-  stage.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
-  stage.addEventListener('pointerleave', () => { hovered = false; schedule(); });
-  stage.addEventListener('focusin', (event) => { focused = !play.contains(event.target); schedule(); });
-  stage.addEventListener('focusout', () => queueMicrotask(() => { focused = stage.contains(document.activeElement) && !play.contains(document.activeElement); schedule(); }));
+  stage.addEventListener('focusin', (event) => { focused = event.target.matches(':focus-visible') && !play.contains(event.target); schedule(); });
+  stage.addEventListener('focusout', () => queueMicrotask(() => { focused = stage.contains(document.activeElement) && document.activeElement.matches(':focus-visible') && !play.contains(document.activeElement); schedule(); }));
   document.addEventListener('visibilitychange', schedule);
   window.addEventListener('resize', () => flightAnimation?.finish());
   motion.addEventListener('change', () => {
@@ -237,5 +239,5 @@
     new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; schedule(); }, { threshold: .2 }).observe(stage);
   } else visible = true;
   render(false);
-  setPlaying(false);
+  setPlaying(!motion.matches);
 })();
