@@ -1,6 +1,6 @@
 # Hridita Haq — Fashion Designer
 
-A single-page fashion portfolio with an ivory editorial introduction, a runway Collections section, an editorial About section, an interactive creative-process journal, and a cinematic blog. Remaining sections will follow their own supplied references.
+A single-page fashion portfolio with an ivory introduction, an animated editorial Collections section using original photographs, an editorial About section, an interactive creative-process journal, and a cinematic blog. Remaining sections will follow their own supplied references.
 
 ## Preview
 
@@ -11,8 +11,9 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/index.html`: introduction, navigation, Collections markup, and dialogs.
 - `dist/styles.css`: colors, typography, responsive layouts, and animations.
 - `dist/app.js`: mobile navigation, upcoming-section dialogs, and pointer motion.
-- `dist/collections.css`: responsive runway depth, look details, and collection dialog layouts.
-- `dist/collections.js`: six-look carousel data, autoplay, keyboard controls, drag/swipe, and details.
+- `dist/collections.css`: alternating portrait compositions, staggered photo tiles, vertical transitions, and responsive photo dialogs.
+- `dist/collection-looks.js`: five selected looks, image identifiers, descriptive draft titles, captions, and photo credits.
+- `dist/collections.js`: five-look slideshow, autoplay, keyboard controls, drag/swipe, and original-photo dialogs.
 - `dist/about.css`: three-panel portrait composition, introduction, signature, and responsive About layout.
 - `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
 - `dist/process.css`: seven editorial studio chapters, layered parallax transitions, responsive art direction, and the study dialog.
@@ -27,9 +28,11 @@ Motion respects the operating system’s reduced-motion preference. Dialogs supp
 
 ## Collections
 
-The supplied 6.71-second reference shows a fashion runway carousel: a large foreground model, increasingly small and faded previous looks on the left, and a garment-detail column on the right. This implementation follows that composition with 1-second depth transitions. The runway starts automatically and advances every 4.2 seconds while visible. Hovering or selecting a look keeps playback enabled. Pause stops it until Play is pressed. Playback temporarily waits during a drag, keyboard navigation, a hidden tab, or an open look dialog. Reduced-motion users start with autoplay disabled and see immediate look changes.
+The latest reference, `a7bd2780-aa5d-43ba-a0dc-1da118122e73.mp4`, shows alternating large model cutouts, two staggered photographs, large central typography, and vertical transitions. The redesigned Collections section follows that composition with five user-supplied original looks. The previous six-look runway layout and fictional AI looks are no longer displayed.
 
-Six fictional concept looks are visibly labeled as AI imagery, not Hridita's actual designs. Replace the look data and transparent sheets with approved collection assets when supplied. Each three-model PNG is displayed using CSS background positioning without modifying the original generated asset. Use the dots, arrow buttons, left/right keys, or a horizontal drag/swipe to navigate. Vertical page scrolling stays native.
+The main figures use ImageGen background extractions of the supplied photographs. The inset photographs and photo dialogs use byte-for-byte copies of the original files, including the Memory Mirage watermark on the first photograph. Editorial look titles and descriptions are draft labels based on visible clothing details, not verified collection names or claims about materials. File mappings and exact editing prompts are recorded in `collections-photo-provenance.md`.
+
+Playback starts automatically while the gallery is visible, waits 4.8 seconds on each settled composition, then uses a 1.2-second vertical transition. Hover and manual selection preserve playback. Pause keeps it stopped until Play is pressed. Keyboard focus, a drag, a hidden tab, an open photo dialog, and transitions temporarily suspend the timer. Use the five pagination buttons, Previous/Next, Left/Right, Home/End, or a horizontal drag/swipe to navigate; vertical touch scrolling stays native. Rapid requests queue the final destination. Reduced-motion visitors start paused and see immediate changes. Dialogs show the original photographs with Escape, focus restoration, and backdrop dismissal.
 
 On Windows, prepend the installed `C:\Program Files\Git\bin` to the environment PATH and set `TAR_OPTIONS=--force-local` when invoking the official Sites source helper. These settings allow its Bash packager to handle Windows archive paths.
 
@@ -57,4 +60,4 @@ The About introduction uses brief first-person draft copy, as authorized by the 
 
 Fonts: Cormorant Garamond, DM Sans, and Allura, downloaded from Google Fonts. The current portrait is user-supplied. Its provenance and the retired AI placeholder's generation prompt are in `asset-provenance.md`.
 
-The Collections asset prompts and provenance are in `collections-provenance.md`.
+The current Collections assets and prompts are in `collections-photo-provenance.md`. `collections-provenance.md` documents the retired AI placeholders.
