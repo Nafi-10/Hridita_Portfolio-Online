@@ -13,10 +13,12 @@
   <link rel="stylesheet" href="./collections.css">
   <link rel="stylesheet" href="./about.css">
   <link rel="stylesheet" href="./process.css">
+  <link rel="stylesheet" href="./blog.css">
   <script src="./app.js" defer></script>
   <script src="./collections.js" defer></script>
   <script src="./about.js" defer></script>
   <script src="./process.js" defer></script>
+  <script src="./blog.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -30,6 +32,7 @@
         <button type="button" data-section="services">Services</button>
         <a href="#about">About</a>
         <a href="#process">Process</a>
+        <a href="#blog">Blog</a>
         <button type="button" data-section="contact">Contact</button>
       </nav>
       <button class="outline-button header-contact" type="button" data-section="contact">Let’s work together <span aria-hidden="true">↗</span></button>
@@ -41,6 +44,7 @@
       <button type="button" data-section="services">Services <span aria-hidden="true">↗</span></button>
       <a href="#about">About <span aria-hidden="true">↗</span></a>
       <a href="#process">Process <span aria-hidden="true">↗</span></a>
+      <a href="#blog">Blog <span aria-hidden="true">↗</span></a>
       <button type="button" data-section="contact">Contact <span aria-hidden="true">↗</span></button>
     </nav>
 
@@ -253,6 +257,39 @@
           <noscript><p class="studio-no-script">Enable JavaScript to explore all seven chapters: sketches, mood boards, fabric swatches, pattern-making, fittings, photoshoot, and crafts.</p></noscript>
         </div>
       </section>
+      <section class="blog" id="blog" aria-labelledby="blog-heading">
+        <div class="container">
+          <div class="blog-section-heading"><h2 id="blog-heading">Blog <span>/ 04</span></h2><span>Ideas, observations &amp; other threads</span></div>
+          <div class="blog-intro"><p>Notes on <em>form.</em></p><span>A closer look at the things<br>that make fashion feel personal.</span></div>
+          <div class="blog-stage" role="region" aria-roledescription="carousel" aria-label="Fashion journal, four draft stories" tabindex="0">
+            <div class="blog-backdrop blog-photo" aria-hidden="true"><span class="blog-art" data-story-art="0"></span></div>
+            <div class="blog-shade" aria-hidden="true"></div>
+            <div class="blog-masthead"><span><span aria-hidden="true">✳</span> The journal</span><span>Fashion &nbsp; / &nbsp; Feeling &nbsp; / &nbsp; Form</span></div>
+            <article class="blog-feature" aria-labelledby="blog-story-title">
+              <p class="blog-meta"><span class="blog-category">Design notes</span><span aria-hidden="true">—</span><span>1 min read</span></p>
+              <h3 id="blog-story-title">The poetry<br>of a pleat.</h3>
+              <p class="blog-excerpt">How a simple fold gives fabric its own rhythm, structure, and sense of movement.</p>
+              <button class="blog-read" type="button"><span class="blog-read-icon" aria-hidden="true">↗</span><span>Read the story</span></button>
+            </article>
+            <div class="blog-cards" aria-label="Choose the next story">
+              <button class="blog-card blog-photo" type="button" data-story="0" data-slot="hidden" tabindex="-1" aria-hidden="true" inert aria-label="Show story: The poetry of a pleat."><span class="blog-art" data-story-art="0" aria-hidden="true"></span><span class="blog-card-shade" aria-hidden="true"></span><span class="blog-card-top">01 <span aria-hidden="true">↗</span></span><span class="blog-card-copy"><span>Design notes</span><strong>The poetry<br>of a pleat.</strong></span></button>
+              <button class="blog-card blog-photo" type="button" data-story="1" data-slot="0" aria-label="Show story: A palette in the everyday."><span class="blog-art" data-story-art="1" aria-hidden="true"></span><span class="blog-card-shade" aria-hidden="true"></span><span class="blog-card-top">02 <span aria-hidden="true">↗</span></span><span class="blog-card-copy"><span>Inspiration</span><strong>A palette in<br>the everyday.</strong></span></button>
+              <button class="blog-card blog-photo" type="button" data-story="2" data-slot="1" aria-label="Show story: A feeling for texture."><span class="blog-art" data-story-art="2" aria-hidden="true"></span><span class="blog-card-shade" aria-hidden="true"></span><span class="blog-card-top">03 <span aria-hidden="true">↗</span></span><span class="blog-card-copy"><span>Material stories</span><strong>A feeling<br>for texture.</strong></span></button>
+              <button class="blog-card blog-photo" type="button" data-story="3" data-slot="2" aria-label="Show story: The quiet art of finishing."><span class="blog-art" data-story-art="3" aria-hidden="true"></span><span class="blog-card-shade" aria-hidden="true"></span><span class="blog-card-top">04 <span aria-hidden="true">↗</span></span><span class="blog-card-copy"><span>Craft &amp; care</span><strong>The quiet art<br>of finishing.</strong></span></button>
+            </div>
+            <div class="blog-controls">
+              <div class="blog-arrows"><button class="blog-prev" type="button" aria-label="Previous blog story">←</button><button class="blog-next" type="button" aria-label="Next blog story">→</button></div>
+              <button class="blog-play" type="button" aria-label="Play blog stories"><span class="blog-play-symbol" aria-hidden="true">▷</span><span class="blog-play-label">Play</span></button>
+              <div class="blog-progress" aria-hidden="true"><span></span></div>
+              <div class="blog-counter"><strong>01</strong><span>/ 04</span></div>
+            </div>
+            <span class="blog-stage-note">An open notebook. A continuing conversation.</span>
+            <p class="sr-only blog-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <p class="blog-disclaimer">Draft journal entries · Illustrative AI imagery. Ready for Hridita’s own words and photographs.</p>
+          <noscript><p>Enable JavaScript to browse the four draft stories and open their full text.</p></noscript>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -274,6 +311,13 @@
     <button class="studio-dialog-close" type="button" aria-label="Close process study">×</button>
     <div class="studio-dialog-photo studio-photo" role="img" aria-label="Illustrative fashion process study"><span class="studio-art" aria-hidden="true"></span></div>
     <div class="studio-dialog-copy"><p class="studio-kicker">Studio journal / <span class="studio-dialog-number">01</span></p><h2 id="studio-dialog-title">Sketches</h2><p id="studio-dialog-description"></p><p class="studio-dialog-materials"></p><p class="studio-dialog-note">Illustrative study · AI-generated imagery.<br>Not a record of Hridita’s original work.</p><button class="outline-button studio-dialog-return" type="button">Back to the journal <span aria-hidden="true">↗</span></button></div>
+  </dialog>
+  <dialog class="blog-dialog" aria-labelledby="blog-dialog-title">
+    <button class="blog-dialog-close" type="button" aria-label="Close blog story">×</button>
+    <div class="blog-dialog-layout">
+      <div class="blog-dialog-photo blog-photo" role="img" aria-label="Illustrative AI fashion photograph"><span class="blog-art" data-story-art="0" aria-hidden="true"></span></div>
+      <article class="blog-dialog-copy"><p class="blog-dialog-meta">Design notes · 1 min read</p><h2 id="blog-dialog-title">The poetry of a pleat.</h2><p class="blog-draft-note">Sample editorial · Draft for review</p><div class="blog-article-body"></div><button class="blog-dialog-return outline-button" type="button">Back to the journal <span aria-hidden="true">↗</span></button></article>
+    </div>
   </dialog>
 </body>
 </html>

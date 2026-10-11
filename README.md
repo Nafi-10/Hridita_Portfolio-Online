@@ -1,6 +1,6 @@
 # Hridita Haq — Fashion Designer
 
-A single-page fashion portfolio with an ivory editorial introduction, a video-referenced runway Collections section, and an editorial About section. Remaining sections will follow their own supplied references.
+A single-page fashion portfolio with an ivory editorial introduction, a runway Collections section, an editorial About section, an interactive creative-process journal, and a cinematic blog. Remaining sections will follow their own supplied references.
 
 ## Preview
 
@@ -17,6 +17,8 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
 - `dist/process.css`: seven editorial studio chapters, layered parallax transitions, responsive art direction, and the study dialog.
 - `dist/process.js`: chapter selection, keyboard and swipe controls, optional playback, and study dialogs.
+- `dist/blog.css`: cinematic story backdrop, floating portrait cards, expanding image transition, and article reader.
+- `dist/blog.js`: four draft articles, story selection, keyboard/swipe controls, optional playback, and accessible reading dialogs.
 - `dist/assets/`: self-hosted fonts and imagery.
 
 The introduction contains an explicitly labeled AI-generated editorial placeholder, not a photo of Hridita. Replace it with her approved portrait and update the alt text and caption together. No services, project history, availability, or contact information have been invented. Navigation to unfinished sections opens clearly labeled coming-soon dialogs. Replace those with section anchors as each section is built.
@@ -39,7 +41,17 @@ Choose a chapter, drag/swipe horizontally, or use Previous/Next. When the stage 
 
 Images and accompanying generic descriptions are illustrative placeholders, not Hridita's actual process or designs. Replace them with her approved material. Both image sheets are displayed as separate photos using CSS cropping; no composite sheet is presented to visitors. Prompts, file paths, and quadrant mapping are in `process-provenance.md`.
 
-## Assets
+## Blog / Notes on form
+
+The blog follows the user's `02c77b5f-f25c-4302-8673-cc848d01cbed.mp4` reference: a large photographic backdrop, left-aligned featured story, and a rail of portrait cards. Selecting a card expands its photograph into the background while the remaining cards advance and the story text appears. The existing ivory and chocolate palette and Cormorant typography carry through the new section after the studio journal. Navigation links to `#blog`.
+
+Four sample articles cover pleats, colour inspiration, texture, and finishing. Each opens in a reading dialog with Escape, a close button, and focus restoration. These are proposed editorial drafts, not attributed published writing or verified experiences of Hridita. All generated images are illustrative; replace the source sheet and drafts with approved material when available. See `blog-provenance.md` for the asset mapping and exact prompt.
+
+Arrow buttons, Left/Right, Home/End, and horizontal drag/swipe select stories. The card rail has one keyboard tab stop to avoid focus on clipped cards. Optional Play advances every 6.5 seconds while the section is visible, with pause on hover, reading focus, a hidden page, or an open reader; manual selection stops playback. Playback starts paused. Reduced-motion users see immediate selection changes, and enabling reduced motion stops playback. No CMS, account, analytics, or external API is required.
+
+VS Code Live Server is configured in `.vscode/settings.json` to serve `/dist` on port 5500 with automatic reload on save. The plain Node preview remains available at port 4173.
+
+## Asset notes
 
 The About introduction uses brief first-person draft copy, as authorized by the user. Only Hridita's name and fashion-designer role are confirmed; the creative approach is proposed copy to review, not a verified biography. No education, location, clients, awards, or career history are asserted. Replace the draft with her approved introduction when available. The studio still life is labeled as an AI illustration, not her actual workspace. Its generation prompt is in `about-provenance.md`.
 
