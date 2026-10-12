@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { withSiteChrome } = require('./site-chrome.cjs');
 const root = path.resolve(__dirname, '..');
 const studies = JSON.parse(fs.readFileSync(path.join(__dirname, 'study-content.json'), 'utf8'));
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -39,6 +40,6 @@ for (const [i,s] of studies.entries()) {
 <p class="study-closing"><span aria-hidden="true">✳</span>${esc(s.closing)}</p>
 <nav class="study-page-nav" aria-label="Browse atelier studies"><a href="${url(prev)}"><span aria-hidden="true">←</span><span><small>Previous study</small>${esc(prev.name)}</span></a><a class="back-to-atelier" href="./index.html#process">Back to the atelier <span aria-hidden="true">↗</span></a><a href="${url(next)}"><span><small>Next study</small>${esc(next.name)}</span><span aria-hidden="true">→</span></a></nav></main>
 <footer class="study-footer"><a href="./index.html#top">Hridita Haq</a><span>A creative journal in seven chapters.</span><a href="./collection.html">Explore the collection ↗</a></footer><script type="application/json" id="study-data">${JSON.stringify(s).replace(/</g,'\\u003c')}</script></body></html>`;
-  fs.writeFileSync(path.join(root, `dist/study-${s.slug}.html`), html);
+  fs.writeFileSync(path.join(root, `dist/study-${s.slug}.html`), withSiteChrome(html));
 }
 console.log(`Built ${studies.length} atelier study pages.`);

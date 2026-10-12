@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { withSiteChrome } = require('./site-chrome.cjs');
 const root = path.resolve(__dirname, '..');
 const looks = JSON.parse(fs.readFileSync(path.join(root, 'dist/collection-looks.js'), 'utf8').replace('window.collectionLooks = ', '').trim().replace(/;$/, ''));
 const details = JSON.parse(fs.readFileSync(path.join(root, 'scripts/lookbook-details.json'), 'utf8'));
@@ -31,7 +32,7 @@ ${header()}
 </article>
 <details class="original-study"><summary>View original photograph <span aria-hidden="true">＋</span></summary><figure><img src="${photo(look)}" alt="${escape(look.alt)}" loading="lazy"><figcaption>${escape(look.credit)}</figcaption></figure></details>
 <nav class="look-page-nav" aria-label="Browse collection looks"><a href="${url(prev)}"><span aria-hidden="true">←</span><span><small>Previous look</small>${escape(prev.name)}</span></a><a class="all-looks-link" href="./collection.html"><span class="grid-icon" aria-hidden="true">▦</span>View full list</a><a href="${url(next)}"><span><small>Next look</small>${escape(next.name)}</span><span aria-hidden="true">→</span></a></nav></main>${footer()}</body></html>`;
-  fs.writeFileSync(path.join(root, `dist/look-${look.slug}.html`), page);
+  fs.writeFileSync(path.join(root, `dist/look-${look.slug}.html`), withSiteChrome(page));
 }
 
 const catalog = `${head('All collections', 'Explore five selected looks by Hridita Haq, from expressive saris to flowing dresses and considered tailoring.')}
@@ -40,5 +41,5 @@ const catalog = `${head('All collections', 'Explore five selected looks by Hridi
 <section class="design-threads" aria-label="Design details across the collection">${[['01','Shape & movement','Pleats and flowing layers.'],['02','Expressive colour','From soft ivory to vivid prints.'],['03','A closer look','Lace, piping, and patterned borders.'],['04','Individual style','Five distinct ways to wear a story.']].map(([n,t,d]) => `<div><span aria-hidden="true">${n}</span><p><strong>${t}</strong>${d}</p></div>`).join('')}</section>
 <section class="catalog-selection book-container" id="all-looks" aria-labelledby="all-looks-title"><div class="catalog-section-title"><p class="book-eyebrow">Work / Collections</p><h2 id="all-looks-title">The full edit</h2><p>Five looks. Explore each one in detail.</p></div><div class="catalog-grid">${looks.map(card).join('')}</div><a class="book-outline" href="./index.html#work">Return to the animated collection <span aria-hidden="true">↗</span></a></section>
 <section class="catalog-about book-container" aria-labelledby="catalog-about-title"><div class="catalog-about-photo"><img src="${photo(looks[3])}" alt="Close-up of floral lace on the ivory dress." loading="lazy"></div><div class="catalog-about-copy"><p class="book-eyebrow">Behind the designs</p><h2 id="catalog-about-title">An eye for detail.<br><em>A feeling for form.</em></h2><p>A shape, a texture, a small detail—each can become the starting point for something personal.</p><a class="book-button" href="./index.html#about">About Hridita <span aria-hidden="true">↗</span></a></div></section></main>${footer()}</body></html>`;
-fs.writeFileSync(path.join(root, 'dist/collection.html'), catalog);
+fs.writeFileSync(path.join(root, 'dist/collection.html'), withSiteChrome(catalog));
 console.log('Built the full collection and five editorial look pages.');
