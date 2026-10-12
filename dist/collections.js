@@ -8,7 +8,7 @@
   const playButton = section.querySelector('.runway-play');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const interval = 7500;
-  const transitionDuration = 1200;
+  const transitionDuration = 480;
   const number = (index) => String(index + 1).padStart(2, '0');
   let active = 0;
   let userPaused = motion.matches;

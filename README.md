@@ -11,7 +11,7 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/index.html`: introduction, navigation, Collections markup, and dialogs.
 - `dist/styles.css`: colors, typography, responsive layouts, and animations.
 - `dist/app.js`: mobile navigation, upcoming-section dialogs, and pointer motion.
-- `dist/collections.css`: alternating portrait compositions, staggered photo tiles, vertical transitions, and responsive controls.
+- `dist/collections.css`: compact editorial compositions, paired thumbnail rows, single-slide entrance animations, and responsive controls.
 - `dist/collection-looks.js`: five selected looks, image identifiers, descriptive draft titles, captions, and photo credits.
 - `dist/collections.js`: five-look slideshow, autoplay, keyboard controls, drag/swipe, and links to editorial look pages.
 - `dist/about.css`: three-panel portrait composition, introduction, signature, and responsive About layout.
@@ -31,9 +31,9 @@ Motion respects the operating system’s reduced-motion preference. Dialogs supp
 
 ## Collections
 
-The latest reference, `a7bd2780-aa5d-43ba-a0dc-1da118122e73.mp4`, shows alternating large model cutouts, two staggered photographs, large central typography, and vertical transitions. The redesigned Collections section follows that composition with five user-supplied original looks. The previous six-look runway layout and fictional AI looks are no longer displayed.
+The latest reference, `a7bd2780-aa5d-43ba-a0dc-1da118122e73.mp4`, shows alternating large model cutouts, two staggered photographs, large central typography, and vertical transitions. The Collections section uses five user-supplied original looks. Following the October 13 spacing review, its layout groups the title, description, and CTA on the left with a paired thumbnail row below and a large featured model on the right. The wider canvas and shorter desktop section reduce empty space. On mobile the content, model, and thumbnails stack without overlap. The previous six-look runway layout and fictional AI looks are no longer displayed.
 
-The gallery uses 16px descriptions, clear garment labels, numbered selection buttons, and labelled playback/navigation controls. Descriptions and editorial look pages use plain language and stronger contrast.
+Only the active slide is visible during the brief entrance animation, preventing overlapping titles and buttons. Existing autoplay, pause/play, keyboard and swipe navigation, and look-page links remain available. The gallery uses 16–17px descriptions, clear garment labels, numbered selection buttons, and labelled playback/navigation controls. Descriptions and editorial look pages use plain language and stronger contrast.
 
 The main figures use ImageGen background extractions of the supplied photographs. The inset photographs and photo dialogs use byte-for-byte copies of the original files, including the Memory Mirage watermark on the first photograph. Editorial look titles and descriptions are draft labels based on visible clothing details, not verified collection names or claims about materials. File mappings and exact editing prompts are recorded in `collections-photo-provenance.md`.
 
