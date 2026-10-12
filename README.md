@@ -1,10 +1,33 @@
 # Hridita Haq — Fashion Designer
 
-A single-page fashion portfolio with an ivory introduction, an animated editorial Collections section using original photographs, an editorial About section, an interactive creative-process journal, and a cinematic blog. Remaining sections will follow their own supplied references.
+A static, multi-page fashion portfolio with an ivory introduction, an animated editorial Collections section using original photographs, an editorial About section, an interactive creative-process journal, and a cinematic blog. Remaining sections will follow their own supplied references.
 
 ## Preview
 
 Run `npm run dev` from this directory and open http://127.0.0.1:4173. No dependencies or build step required. `npm run check` checks browser-script syntax.
+
+## Development and publishing
+
+Use a current Node.js release; the project uses only Node.js built-ins and has no install step.
+
+```sh
+npm run dev
+npm run check
+```
+
+The preview server serves `dist/` locally at `http://127.0.0.1:4173`. The syntax check covers the browser scripts and page-generation scripts; it does not replace browser-based visual or interaction testing.
+
+Generated pages can be refreshed after editing their source data:
+
+```sh
+npm run build:studies
+npm run build:lookbook
+npm run build:chrome
+```
+
+Edit `scripts/study-content.json` before building the atelier studies, or `scripts/lookbook-details.json` before building the collection look pages. The lookbook data is combined with the look definitions in `dist/collection-looks.js`. The shared-chrome build updates the footer and shared asset references across the existing HTML pages. Generated HTML is kept in `dist/` and committed with the source data.
+
+For deployment, publish the contents of `dist/` with any static-site host; no server-side application or external service is required. The preview server is for local development only. Asset sources, credits, and editing notes are recorded in the `*-provenance.md` files at the project root.
 
 ## Edit
 
