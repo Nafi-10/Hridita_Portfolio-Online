@@ -1,4 +1,4 @@
-# Hridita Haq — Fashion Designer
+# Hridita Huq — Fashion Designer
 
 A static, multi-page fashion portfolio with an ivory introduction, an animated editorial Collections section using original photographs, an editorial About section, an interactive creative-process journal, and a cinematic blog. Remaining sections will follow their own supplied references.
 
