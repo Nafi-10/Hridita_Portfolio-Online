@@ -5,7 +5,6 @@
   const gallery = section.querySelector('.collection-gallery');
   const scenes = [...section.querySelectorAll('.collection-scene')];
   const dots = [...section.querySelectorAll('[data-select-look]')];
-  const modal = document.querySelector('.collection-dialog');
   const playButton = section.querySelector('.runway-play');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const interval = 7500;
@@ -22,12 +21,11 @@
   let progress;
   let pointerStart;
   let suppressClick = false;
-  let modalOpener;
 
   function schedule() {
     clearTimeout(timer);
     progress?.cancel();
-    const playing = !userPaused && inView && !focusWithin && !pointerStart && !transitioning && !document.hidden && !modal.open;
+    const playing = !userPaused && inView && !focusWithin && !pointerStart && !transitioning && !document.hidden;
     playButton.setAttribute('aria-label', userPaused ? 'Play collection slideshow' : 'Pause collection slideshow');
     section.querySelector('.play-symbol').textContent = userPaused ? '▷' : 'Ⅱ';
     section.querySelector('.play-label').textContent = userPaused ? 'Play' : 'Pause';
@@ -78,25 +76,11 @@
     else finishTransition();
   }
 
-  function openLook(opener, index) {
-    if (suppressClick || transitioning) return;
-    const look = looks[index];
-    modalOpener = opener;
-    const photo = modal.querySelector('.collection-dialog-image img');
-    photo.src = `./assets/collections/${look.slug}-original.png`;
-    photo.alt = look.alt;
-    modal.querySelector('.dialog-look-number').textContent = `Look ${number(index)}`;
-    modal.querySelector('#collection-dialog-title').textContent = look.name;
-    modal.querySelector('#collection-dialog-description').textContent = look.description;
-    modal.querySelector('.dialog-look-focus').textContent = look.focus;
-    modal.querySelector('.dialog-look-palette').textContent = look.palette;
-    modal.querySelector('.dialog-photo-credit').textContent = look.credit;
-    modal.showModal();
-    document.body.classList.add('modal-open');
-    schedule();
-  }
-
-  section.querySelectorAll('[data-open-look]').forEach(button => button.addEventListener('click', () => openLook(button, Number(button.dataset.openLook))));
+  // Real links support browser Back and opening a look in another tab.
+  // A swipe or an unfinished transition must not accidentally open a page.
+  section.querySelectorAll('[data-open-look]').forEach(link => link.addEventListener('click', event => {
+    if (suppressClick || transitioning) event.preventDefault();
+  }));
   dots.forEach(dot => dot.addEventListener('click', () => select(Number(dot.dataset.selectLook))));
   section.querySelector('.runway-next').addEventListener('click', () => select((queued ?? active) + 1));
   section.querySelector('.runway-previous').addEventListener('click', () => select((queued ?? active) - 1));
@@ -165,15 +149,6 @@
     schedule();
   });
   new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; schedule(); }, { threshold:0.25 }).observe(gallery);
-  modal.querySelectorAll('.collection-dialog-close, .collection-dialog-back').forEach(button => button.addEventListener('click', () => modal.close()));
-  modal.addEventListener('click', event => {
-    const bounds = modal.getBoundingClientRect();
-    if (event.target === modal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) modal.close();
-  });
-  modal.addEventListener('close', () => {
-    document.body.classList.remove('modal-open');
-    modalOpener?.focus({ preventScroll:true });
-    schedule();
-  });
+  window.addEventListener('pageshow', schedule);
   schedule();
 })();

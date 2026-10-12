@@ -1,0 +1,32 @@
+{
+  "motion": {
+    "heading": ["In", "motion"], "accent": "#68758a", "swatches": ["#253349", "#a9c6da", "#f6f1e7"],
+    "notes": [["Sculpted pleats", "Pale-blue folds bring texture to the bodice."], ["Flowing shape", "A long navy skirt lets the silhouette move."], ["Sheer layers", "A white wrap frames the look with soft folds."]],
+    "crops": [{"title": "The pleated bodice", "description": "Pale blue meets navy in a curved, textured panel.", "alt": "pale-blue pleats on the navy dress", "zoom": 2.6, "x": "52%", "y": "53%"}, {"title": "The sheer wrap", "description": "Light, translucent folds add a sense of movement.", "alt": "the white wrap gathered beside a raised arm", "zoom": 2.4, "x": "19%", "y": "40%"}],
+    "closing": "Structure in the pleats. Softness in every fold."
+  },
+  "tailoring": {
+    "heading": ["Defined", "lines"], "accent": "#95787b", "swatches": ["#b09c9a", "#51494b", "#272627"],
+    "notes": [["Curved lines", "Dark piping follows the shape of the jacket."], ["Contrasting edges", "A dark collar and cuffs frame the softer mauve."], ["Clean silhouette", "Black separates keep attention on the jacket."]],
+    "crops": [{"title": "Curved piping", "description": "A dark outline gives the front its distinctive shape.", "alt": "curved dark piping on the mauve jacket", "zoom": 2.3, "x": "48%", "y": "53%"}, {"title": "Contrasting cuffs", "description": "Dark cuffs echo the collar and pocket edges.", "alt": "a dark cuff and pocket edge on the jacket", "zoom": 2.7, "x": "59%", "y": "73%"}],
+    "closing": "Soft colour. Clear lines. Considered contrast."
+  },
+  "colour": {
+    "heading": ["Colour", "stories"], "accent": "#ac7540", "swatches": ["#e4d5ac", "#eaa12b", "#2579a0", "#db6582"],
+    "notes": [["A vivid canvas", "Orange, blue, yellow, and pink meet on cream."], ["Illustrated detail", "Figures and botanical shapes unfold across the drape."], ["Patterned borders", "Graphic edges frame the colour and imagery."]],
+    "crops": [{"title": "Art in the drape", "description": "Figurative motifs make the fabric a visual story.", "alt": "colourful figurative motifs on the sari", "zoom": 2.1, "x": "45%", "y": "78%"}, {"title": "Botanical colour", "description": "Bright leaves and flowers create a playful rhythm.", "alt": "bright botanical motifs and the sari border", "zoom": 2.1, "x": "29%", "y": "55%"}],
+    "closing": "A story in colour, carried through the drape."
+  },
+  "ivory": {
+    "heading": ["Soft", "ivory"], "accent": "#947b4e", "swatches": ["#eee8d5", "#d8c9ad", "#fffcf4"],
+    "notes": [["Floral lace", "Delicate motifs soften the sheer sleeves."], ["Gentle volume", "Gathered sleeves and skirt give the dress its shape."], ["Open shoulders", "Small openings balance the full, airy sleeves."]],
+    "crops": [{"title": "Floral lace", "description": "Fine floral motifs run through the sheer sleeves.", "alt": "floral lace on the ivory dress sleeve", "zoom": 2.1, "x": "83%", "y": "69%"}, {"title": "A floral finish", "description": "The hairpiece repeats the delicate detail of the dress.", "alt": "the floral hairpiece above the ivory dress", "zoom": 2.3, "x": "45%", "y": "20%"}],
+    "closing": "A little texture. A softer silhouette."
+  },
+  "crimson": {
+    "heading": ["Crimson", "notes"], "accent": "#9e545f", "swatches": ["#242123", "#9b253a", "#cf354c"],
+    "notes": [["Deep contrast", "Crimson details stand out against a black base."], ["Patterned border", "A rich red edge gives the drape its definition."], ["A single rose", "One flower brings the colour back to the face."]],
+    "crops": [{"title": "The crimson border", "description": "Red motifs add depth and rhythm to the dark drape.", "alt": "the patterned red border on the black sari", "zoom": 2.1, "x": "63%", "y": "76%"}, {"title": "The finishing detail", "description": "A red rose echoes the colour of the sari border.", "alt": "the red rose beside the model's ear", "zoom": 2.6, "x": "63%", "y": "31%"}],
+    "closing": "A dark canvas, with a note of crimson."
+  }
+}

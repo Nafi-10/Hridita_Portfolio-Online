@@ -11,9 +11,9 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/index.html`: introduction, navigation, Collections markup, and dialogs.
 - `dist/styles.css`: colors, typography, responsive layouts, and animations.
 - `dist/app.js`: mobile navigation, upcoming-section dialogs, and pointer motion.
-- `dist/collections.css`: alternating portrait compositions, staggered photo tiles, vertical transitions, and responsive photo dialogs.
+- `dist/collections.css`: alternating portrait compositions, staggered photo tiles, vertical transitions, and responsive controls.
 - `dist/collection-looks.js`: five selected looks, image identifiers, descriptive draft titles, captions, and photo credits.
-- `dist/collections.js`: five-look slideshow, autoplay, keyboard controls, drag/swipe, and original-photo dialogs.
+- `dist/collections.js`: five-look slideshow, autoplay, keyboard controls, drag/swipe, and links to editorial look pages.
 - `dist/about.css`: three-panel portrait composition, introduction, signature, and responsive About layout.
 - `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
 - `dist/process.css`: seven editorial studio chapters, layered parallax transitions, responsive art direction, and the study dialog.
@@ -30,11 +30,11 @@ Motion respects the operating system’s reduced-motion preference. Dialogs supp
 
 The latest reference, `a7bd2780-aa5d-43ba-a0dc-1da118122e73.mp4`, shows alternating large model cutouts, two staggered photographs, large central typography, and vertical transitions. The redesigned Collections section follows that composition with five user-supplied original looks. The previous six-look runway layout and fictional AI looks are no longer displayed.
 
-The gallery uses 16px descriptions, clear garment labels, numbered selection buttons, and labelled playback/navigation controls. Descriptions and original-photo dialogs use plain language and stronger contrast.
+The gallery uses 16px descriptions, clear garment labels, numbered selection buttons, and labelled playback/navigation controls. Descriptions and editorial look pages use plain language and stronger contrast.
 
 The main figures use ImageGen background extractions of the supplied photographs. The inset photographs and photo dialogs use byte-for-byte copies of the original files, including the Memory Mirage watermark on the first photograph. Editorial look titles and descriptions are draft labels based on visible clothing details, not verified collection names or claims about materials. File mappings and exact editing prompts are recorded in `collections-photo-provenance.md`.
 
-Playback starts automatically while the gallery is visible, waits 7.5 seconds on each settled composition, then uses a 1.2-second vertical transition. Hover and manual selection preserve playback. Pause keeps it stopped until Play is pressed. Keyboard focus, a drag, a hidden tab, an open photo dialog, and transitions temporarily suspend the timer. Use the five pagination buttons, Previous/Next, Left/Right, Home/End, or a horizontal drag/swipe to navigate; vertical touch scrolling stays native. Rapid requests queue the final destination. Reduced-motion visitors start paused and see immediate changes. Dialogs show the original photographs with Escape, focus restoration, and backdrop dismissal.
+Playback starts automatically while the gallery is visible, waits 7.5 seconds on each settled composition, then uses a 1.2-second vertical transition. Hover and manual selection preserve playback. Pause keeps it stopped until Play is pressed. Keyboard focus, a drag, a hidden tab, and transitions temporarily suspend the timer. Use the five pagination buttons, Previous/Next, Left/Right, Home/End, or a horizontal drag/swipe to navigate; vertical touch scrolling stays native. Rapid requests queue the final destination. Reduced-motion visitors start paused and see immediate changes. Selecting a photo or “View photo & details” opens its dedicated editorial look page.
 
 On Windows, prepend the installed `C:\Program Files\Git\bin` to the environment PATH and set `TAR_OPTIONS=--force-local` when invoking the official Sites source helper. These settings allow its Bash packager to handle Windows archive paths.
 
@@ -63,3 +63,11 @@ The About introduction uses brief first-person draft copy, as authorized by the 
 Fonts: Cormorant Garamond, DM Sans, and Allura, downloaded from Google Fonts. The current portrait is user-supplied. Its provenance and the retired AI placeholder's generation prompt are in `asset-provenance.md`.
 
 The current Collections assets and prompts are in `collections-photo-provenance.md`. `collections-provenance.md` documents the retired AI placeholders.
+
+## Editorial look pages and full collection
+
+The “View full list” link sits between Previous and Next in the animated Collections controls. `dist/collection.html` follows the supplied boutique reference with a soft blush hero, design-detail strip, five-photo grid, and an About feature. Every card links to the corresponding look. No shop, prices, shipping, or purchase claims are included.
+
+Each `dist/look-*.html` page follows the supplied editorial layout: large serif heading, the existing model cutout, a “The look” panel, a palette, and two close-ups cropped in CSS from the original photograph. The original can be expanded below the study. Previous/Next wrap through all five looks, alongside a full-list link and portfolio return links. All page content and navigation work without JavaScript.
+
+Edit `scripts/lookbook-details.json` for detail captions, palette colours, and close-up positioning. `node scripts/build-lookbook.cjs` regenerates all six HTML pages from it and `dist/collection-looks.js`. Shared styling is in `dist/lookbook.css`. These descriptive editorial titles and notes remain draft copy based on the visible garments; no additional materials or accessories are asserted.
