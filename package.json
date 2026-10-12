@@ -1,8 +1,8 @@
 {
-  "name": "hridita-haq-portfolio",
+  "name": "hridita-huq-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Hridita Haq’s editorial fashion portfolio and interactive runway collections",
+  "description": "Hridita Huq’s editorial fashion portfolio and interactive runway collections",
   "scripts": {
     "dev": "node serve.mjs",
     "check": "node --check dist/app.js && node --check dist/collection-looks.js && node --check dist/collections.js && node --check dist/about.js && node --check dist/process.js && node --check dist/blog.js && node --check dist/study.js && node --check dist/site-chrome.js && node --check scripts/build-studies.cjs && node --check scripts/build-lookbook.cjs && node --check scripts/site-chrome.cjs",

@@ -8,7 +8,7 @@
   menu.setAttribute('aria-label', 'Portfolio shortcuts');
   menu.hidden = true;
   menu.innerHTML = `
-    <div class="portfolio-context-heading" role="presentation">Hridita Haq<small>Portfolio shortcuts</small></div>
+    <div class="portfolio-context-heading" role="presentation">Hridita Huq<small>Portfolio shortcuts</small></div>
     <a role="menuitem" tabindex="-1" href="./index.html#top">Portfolio home <span aria-hidden="true">↗</span></a>
     <a role="menuitem" tabindex="-1" href="./collection.html">View collections <span aria-hidden="true">↗</span></a>
     <a role="menuitem" tabindex="-1" href="./index.html#process">Inside the atelier <span aria-hidden="true">↗</span></a>

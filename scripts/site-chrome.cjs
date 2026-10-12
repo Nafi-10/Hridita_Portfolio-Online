@@ -4,7 +4,7 @@ const path = require('node:path');
 const footer = `<footer class="site-footer">
   <div class="site-footer-inner">
     <div class="site-footer-heading">
-      <a class="site-footer-brand" href="./index.html#top">Hridita Haq<span>Fashion, form &amp; individuality.</span></a>
+      <a class="site-footer-brand" href="./index.html#top">Hridita Huq<span>Fashion, form &amp; individuality.</span></a>
       <nav class="site-footer-nav" aria-label="Footer navigation"><a href="./collection.html">Collections <span aria-hidden="true">↗</span></a><a href="./index.html#process">Inside the atelier <span aria-hidden="true">↗</span></a></nav>
     </div>
     <p class="site-footer-copyright">Copyright act @ 2026. This portfolio is Designed &amp; Build By <a href="https://kazi-jawad.netlify.app/">Kazi Jawad</a> . All rights reserved.</p>
