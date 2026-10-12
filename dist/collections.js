@@ -8,7 +8,7 @@
   const modal = document.querySelector('.collection-dialog');
   const playButton = section.querySelector('.runway-play');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const interval = 4800;
+  const interval = 7500;
   const transitionDuration = 1200;
   const number = (index) => String(index + 1).padStart(2, '0');
   let active = 0;
