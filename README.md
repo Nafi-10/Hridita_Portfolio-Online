@@ -16,8 +16,11 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/collections.js`: five-look slideshow, autoplay, keyboard controls, drag/swipe, and links to editorial look pages.
 - `dist/about.css`: three-panel portrait composition, introduction, signature, and responsive About layout.
 - `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
-- `dist/process.css`: seven editorial studio chapters, layered parallax transitions, responsive art direction, and the study dialog.
-- `dist/process.js`: chapter selection, keyboard and swipe controls, optional playback, and study dialogs.
+- `dist/process.css`: seven editorial studio chapters, layered transitions, and responsive art direction.
+- `dist/process.js`: chapter selection, keyboard and swipe controls, playback, and links to the study pages.
+- `scripts/study-content.json`: editable headings, observations, captions, and steps for all seven atelier studies.
+- `scripts/build-studies.cjs`: generates the seven static `dist/study-*.html` pages; run `npm run build:studies` after content edits.
+- `dist/study.css` and `dist/study.js`: individual journal compositions, selectable details, fabric samples, and the photo contact sheet.
 - `dist/blog.css`: cinematic story backdrop, floating portrait cards, expanding image transition, and article reader.
 - `dist/blog.js`: four draft articles, story selection, keyboard/swipe controls, optional playback, and accessible reading dialogs.
 - `dist/assets/`: self-hosted fonts and imagery.
@@ -42,9 +45,11 @@ On Windows, prepend the installed `C:\Program Files\Git\bin` to the environment 
 
 The section after About follows the supplied video's horizontal editorial transitions, overlapping rectangular photographs, varied typography, and chapter counter. It intentionally excludes the screenshot's central cutout-model layout. Seven chapters cover Sketches, Mood boards, Fabric swatches, Pattern-making, Fittings, Photoshoot, and Crafts. The main Process navigation links to `#process`.
 
-Choose a chapter, drag/swipe horizontally, or use Previous/Next. When the stage has keyboard focus, Left/Right and Home/End navigate. Inactive scenes are inert and hidden from assistive technology. Vertical touch scrolling stays native. Playback starts automatically and advances every 6.5 seconds while visible. Hover and manual chapter selection preserve playback; Pause keeps it stopped until Play is pressed. A drag, keyboard navigation, hidden page, or open dialog temporarily suspends cycling. Reduced-motion preferences start playback paused, disable transitions, and pause playback when enabled. Each study dialog supports Escape and restores focus to its opener.
+Choose a chapter, drag/swipe horizontally, or use Previous/Next. When the stage has keyboard focus, Left/Right and Home/End navigate. Inactive scenes are inert and hidden from assistive technology. Vertical touch scrolling stays native. Playback starts automatically and advances every 6.5 seconds while visible. Hover and manual chapter selection preserve playback; Pause keeps it stopped until Play is pressed. A drag, keyboard navigation, or hidden page temporarily suspends cycling. Reduced-motion preferences start playback paused, disable transitions, and pause playback when enabled.
 
-Images and accompanying generic descriptions are illustrative placeholders, not Hridita's actual process or designs. Replace them with her approved material. Both image sheets are displayed as separate photos using CSS cropping; no composite sheet is presented to visitors. Prompts, file paths, and quadrant mapping are in `process-provenance.md`.
+“Explore the study” opens a dedicated journal page for each chapter. The seven compositions are a taped sketchbook, mood-board collage, selectable fabric samples, a paper pattern diagram, fitting annotations, an original-photo contact sheet, and an embroidery-hoop study. Buttons and image annotations reveal a focused observation and change the corresponding visual. The numbered chapter rail and Previous/Next links connect every page, with a return to the main atelier. All copy and navigation render without JavaScript; interactive controls progressively enhance the page. Mobile layouts place the artwork above the detail controls and notes. Reduced motion disables entry and selection transitions.
+
+The process image sheets and accompanying generic descriptions are illustrative placeholders, not Hridita's actual process or designs. Replace them with her approved material. Both image sheets are displayed as separate photos using CSS cropping; no composite sheet is presented to visitors. Prompts, file paths, and quadrant mapping are in `process-provenance.md`. The Photoshoot study uses three original collection photographs, preserves the full selected frame, and shows the Memory Mirage credit for the blue-dress photograph. Its captions describe visible features, not an invented account of the shoot. The pattern diagram is an illustrative form study, explicitly not to scale or a cutting pattern.
 
 ## Blog / Notes on form
 

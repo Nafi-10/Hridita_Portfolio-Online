@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "sketches", "name": "Sketches", "title": ["Before the", "first stitch."], "eyebrow": "An idea, finding its line", "intro": "A sketch leaves room for possibility. Follow the lines, explore the proportions, and see how a first thought begins to take shape.", "accent": "#716555", "sheet": 1, "x": "0%", "y": "0%", "alt": "Illustrative graphite fashion drawings in an open sketchbook.", "handwritten": "Every line is a possibility.", "boardLabel": "The drawing desk", "note": "Leave a little room for the unexpected.",
+    "details": [
+      {"label": "Silhouette", "title": "Start with the outline.", "text": "The outer line gives a garment its first impression. Notice the long shapes and the space around the body.", "prompt": "Follow the line from shoulder to hem.", "focus": "35% 35%"},
+      {"label": "Movement", "title": "Let the marks move.", "text": "Loose, repeated pencil strokes suggest a fold, a turn, or the direction of falling cloth. The drawing can stay open to change.", "prompt": "Look for the diagonal sweeps of fabric.", "focus": "60% 67%"},
+      {"label": "Proportion", "title": "Change one relationship.", "text": "A higher waist or a longer skirt changes the balance of a look. Sketching makes it possible to compare ideas before committing to one.", "prompt": "Compare the upper and lower parts of each figure.", "focus": "72% 43%"}
+    ],
+    "steps": [["Observe", "Collect a shape, a gesture, or a small detail."], ["Explore", "Draw variations without polishing every mark."], ["Refine", "Choose the lines that give the idea its character."]], "closing": "A collection can begin with a single line."
+  },
+  {
+    "slug": "mood-boards", "name": "Mood boards", "title": ["Gather a", "feeling."], "eyebrow": "A conversation between references", "intro": "An image, a colour, a fragment of texture. Bring them together and a visual direction begins to emerge.", "accent": "#806852", "sheet": 1, "x": "100%", "y": "0%", "alt": "Illustrative mood board with architectural photographs, botanical stems, paper and fabric samples.", "handwritten": "Collect what makes you pause.", "boardLabel": "The inspiration wall", "note": "Shape + texture + a shared feeling.",
+    "details": [
+      {"label": "Shape", "title": "Find a common rhythm.", "text": "An arch, a draped sculpture, a curved edge. Repeated shapes can connect references that come from very different places.", "prompt": "Notice the arches and soft curves.", "focus": "20% 24%"},
+      {"label": "Palette", "title": "Let colours speak together.", "text": "Cream, oat, warm brown, and a muted rose create a quiet starting point. The palette below is an illustrative direction for this study.", "prompt": "Compare the lightest and darkest tones.", "focus": "75% 30%"},
+      {"label": "Texture", "title": "Look beyond the image.", "text": "Paper, woven cloth, and dry botanical shapes bring different surfaces into the same story. Their contrast can suggest details for a garment.", "prompt": "Look at the contrast between smooth paper and woven cloth.", "focus": "70% 74%"}
+    ],
+    "steps": [["Gather", "Follow references that share a feeling."], ["Connect", "Find repeating colours, shapes, and surfaces."], ["Edit", "Keep the references that make the direction clearer."]], "closing": "Inspiration becomes a language of its own."
+  },
+  {
+    "slug": "fabric-swatches", "name": "Fabric swatches", "title": ["A feeling", "for fabric."], "eyebrow": "Texture, weight & possibility", "intro": "Before a material becomes a garment, there is the pleasure of looking closely. Explore four textures and imagine how each could change a silhouette.", "accent": "#896a65", "sheet": 1, "x": "0%", "y": "100%", "alt": "Illustrative overlapping fabric samples in ivory, cocoa, rose and sheer cream.", "handwritten": "Some ideas begin with touch.", "boardLabel": "The material library", "note": "A small sample. A new direction.",
+    "details": [
+      {"label": "Ivory weave", "title": "An open, tactile surface.", "text": "The visible weave and softly frayed edge give this sample a relaxed character. Its texture becomes part of the design.", "prompt": "Look at the tiny spaces between the threads.", "focus": "15% 25%"},
+      {"label": "Cocoa texture", "title": "Depth in a darker tone.", "text": "The dense, nubbled surface makes the cocoa sample feel substantial in the composition. It provides contrast beside lighter layers.", "prompt": "Notice how the surface catches small pockets of shadow.", "focus": "48% 28%"},
+      {"label": "Rose drape", "title": "Softness in the folds.", "text": "Gentle highlights follow the rose sample as it folds. That change between light and shadow helps describe its movement.", "prompt": "Trace the light along the edge of a fold.", "focus": "66% 50%"},
+      {"label": "Sheer layer", "title": "A little light passing through.", "text": "The pale translucent layer lets the tones beneath remain visible. Overlapping it changes both the colour and the sense of depth.", "prompt": "Compare a single layer with an overlapping fold.", "focus": "76% 79%"}
+    ],
+    "steps": [["Look", "Observe surface, colour, and transparency."], ["Drape", "See how a sample falls and forms folds."], ["Pair", "Explore a contrast or a quiet tonal combination."]], "closing": "The material brings its own voice."
+  },
+  {
+    "slug": "pattern-making", "name": "Pattern-making", "title": ["From line", "to form."], "eyebrow": "The architecture beneath the garment", "intro": "The worktable is where a drawing becomes a construction idea. Explore the marks that connect a flat pattern to a three-dimensional shape.", "accent": "#776346", "sheet": 1, "x": "100%", "y": "100%", "alt": "Illustrative kraft-paper garment patterns, a curved ruler, scissors and measuring tape.", "handwritten": "Think in three dimensions.", "boardLabel": "The pattern worktable", "note": "Measure. Mark. Reconsider.",
+    "details": [
+      {"label": "Outline", "title": "Define the piece.", "text": "The outline describes the shape of a pattern piece. Curves and straight edges begin to explain how the garment will be assembled.", "prompt": "Follow the shoulder, armhole, and side edge.", "focus": "50% 28%"},
+      {"label": "Direction", "title": "Give the piece a direction.", "text": "A direction line helps communicate how a pattern sits on fabric. In this simplified diagram, the long arrow makes that orientation visible.", "prompt": "Compare the arrow with the long edge of the piece.", "focus": "50% 50%"},
+      {"label": "Shaping", "title": "Make room for form.", "text": "A shaping mark suggests how a flat surface can be brought closer to the body. This diagram is an exploration of form, not a cutting pattern.", "prompt": "Notice the triangular mark near the waist.", "focus": "45% 73%"}
+    ],
+    "steps": [["Translate", "Identify the pieces behind a silhouette."], ["Map", "Mark the lines that explain their relationships."], ["Test", "Check the idea in a sample before refining it."]], "closing": "Precision gives an idea room to become real."
+  },
+  {
+    "slug": "fittings", "name": "Fittings", "title": ["A conversation", "with form."], "eyebrow": "Pin, adjust & look again", "intro": "Fitting is a moment to pause and observe. A small change can alter the balance, comfort, and expression of the whole silhouette.", "accent": "#73725d", "sheet": 2, "x": "0%", "y": "0%", "alt": "Illustrative hands pinning a cream toile on a dress form.", "handwritten": "Look again. Then adjust.", "boardLabel": "Notes from a fitting", "note": "Small changes, considered carefully.",
+    "details": [
+      {"label": "Balance", "title": "Read the whole silhouette.", "text": "Start with the overall relationship of shoulder, waist, and hem. Look for areas where the cloth rests naturally or appears to pull.", "prompt": "Observe the garment before focusing on a single seam.", "focus": "50% 23%"},
+      {"label": "Shape", "title": "Let a pin suggest the change.", "text": "Pinning holds a possible adjustment long enough to assess it. A temporary change can reveal a different line without making it final.", "prompt": "Look at the cloth gathering around the pinned area.", "focus": "44% 57%"},
+      {"label": "Revisit", "title": "Keep the conversation open.", "text": "An adjustment is a proposal. Looking again from another angle helps decide whether it supports the intention of the design.", "prompt": "Imagine the same form from the side and the back.", "focus": "65% 77%"}
+    ],
+    "steps": [["Observe", "Take in the overall shape before changing it."], ["Adjust", "Try one considered alteration at a time."], ["Review", "Return to the complete silhouette and assess it again."]], "closing": "The smallest adjustment can change the whole feeling."
+  },
+  {
+    "slug": "photoshoot", "name": "Photoshoot", "title": ["Into", "the frame."], "eyebrow": "Light, styling & expression", "intro": "A finished look takes on another life in a photograph. Browse the contact sheet and explore how colour, pose, and setting tell different stories.", "accent": "#6b737e", "sheet": 2, "x": "100%", "y": "0%", "alt": "Original photograph of a model in a navy and pale-blue dress holding a flowing sheer wrap.", "handwritten": "One look. A new point of view.", "boardLabel": "The contact sheet", "note": "A gesture held in a frame.",
+    "details": [
+      {"label": "Movement", "title": "Let the fabric lead.", "text": "The lifted wrap draws a wide shape around the model. Pale layers catch the light against the blue dress and the outdoor setting.", "prompt": "Follow the curve from one raised hand to the other.", "photo": "motion", "credit": "Photograph: Memory Mirage · Original supplied image.", "look": "motion"},
+      {"label": "Structure", "title": "A quieter, closer frame.", "text": "A restrained pose brings the curved dark piping of the mauve jacket forward. The simple backdrop lets those lines remain clear.", "prompt": "Trace the curved lines across the front of the jacket.", "photo": "tailoring", "credit": "Original photograph supplied for this portfolio.", "look": "tailoring"},
+      {"label": "Colour", "title": "Give the print its space.", "text": "The fabric is opened toward the camera so the vivid figures and botanical forms can be seen together. The pose becomes part of the presentation.", "prompt": "Notice how holding the cloth reveals more of the composition.", "photo": "colour", "credit": "Original photograph supplied for this portfolio.", "look": "colour"}
+    ],
+    "steps": [["Frame", "Choose what the image should draw attention to."], ["Observe", "Look at the relationship between pose, cloth, and light."], ["Select", "Find the photograph that carries the story most clearly."]], "closing": "A photograph holds the moment a garment comes alive."
+  },
+  {
+    "slug": "crafts", "name": "Crafts", "title": ["The human", "touch."], "eyebrow": "Made slowly, detail by detail", "intro": "A stitch, a fold, a carefully placed bead. Handwork invites us to slow down and see the gestures that give a surface its character.", "accent": "#84684f", "sheet": 2, "x": "0%", "y": "100%", "alt": "Illustrative hand embroidery with delicate floral stitches and beadwork in a hoop.", "handwritten": "There is beauty in taking time.", "boardLabel": "The handwork table", "note": "An individual gesture, repeated with care.",
+    "details": [
+      {"label": "Stitch", "title": "A line made with thread.", "text": "A sequence of small stitches can become an outline, a stem, or a field of texture. Repetition gives the surface its rhythm.", "prompt": "Follow a stitched line as it changes direction.", "focus": "30% 47%"},
+      {"label": "Embellish", "title": "A detail that catches the light.", "text": "Raised details add another layer to the cloth. Their placement can create a focal point or quietly echo the shape of a motif.", "prompt": "Look for the small highlights among the embroidered shapes.", "focus": "62% 40%"},
+      {"label": "Finish", "title": "Care at the edges.", "text": "Finishing draws attention to the smallest parts of a garment: an edge, a fold, or the meeting of two surfaces. These details complete the story.", "prompt": "Explore the final-detail study beside the embroidery.", "focus": "50% 50%", "sheet": 2, "x": "100%", "y": "100%"}
+    ],
+    "steps": [["Sample", "Try a gesture on a small piece of cloth."], ["Repeat", "Build a rhythm through considered placement."], ["Finish", "Give the edges and reverse the same attention."]], "closing": "Care becomes visible, one detail at a time."
+  }
+]

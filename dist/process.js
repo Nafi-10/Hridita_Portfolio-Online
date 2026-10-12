@@ -5,7 +5,6 @@
   const scenes = [...section.querySelectorAll('.studio-scene')];
   const selectors = [...section.querySelectorAll('[data-studio-select]')];
   const play = section.querySelector('.studio-play');
-  const modal = document.querySelector('.studio-dialog');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const cursor = stage.querySelector('.studio-drag-cursor');
   let current = 0;
@@ -15,12 +14,11 @@
   let timer;
   let drag;
   let suppressClick = false;
-  let opener;
   const number = (value) => String(value + 1).padStart(2, '0');
 
   function schedule() {
     clearTimeout(timer);
-    const playing = !userPaused && inView && !focused && !drag && !document.hidden && !modal.open;
+    const playing = !userPaused && inView && !focused && !drag && !document.hidden;
     section.dataset.playing = String(playing);
     play.setAttribute('aria-label', userPaused ? 'Play studio journal' : 'Pause studio journal');
     play.firstElementChild.textContent = userPaused ? '▷' : 'Ⅱ';
@@ -115,30 +113,11 @@
   stage.addEventListener('pointerleave', () => { stage.classList.remove('has-pointer'); if (!stage.classList.contains('is-dragging') && drag) { drag = null; schedule(); } });
   stage.addEventListener('click', (event) => { if (suppressClick) { event.preventDefault(); event.stopPropagation(); suppressClick = false; } }, true);
 
-  scenes.forEach((scene) => scene.querySelector('.studio-open').addEventListener('click', (event) => {
-    opener = event.currentTarget;
-    const picture = scene.querySelector('.studio-photo-main');
-    modal.querySelector('.studio-art').style.cssText = picture.querySelector('.studio-art').style.cssText;
-    modal.querySelector('.studio-dialog-photo').setAttribute('aria-label', picture.getAttribute('aria-label'));
-    modal.querySelector('#studio-dialog-title').textContent = scene.dataset.name;
-    modal.querySelector('#studio-dialog-description').textContent = scene.dataset.detail;
-    modal.querySelector('.studio-dialog-number').textContent = number(current);
-    modal.querySelector('.studio-dialog-materials').textContent = scene.querySelector('.studio-materials').textContent;
-    modal.showModal();
-    document.body.classList.add('modal-open');
-    stage.classList.remove('has-pointer');
-    schedule();
-  }));
-  modal.querySelectorAll('.studio-dialog-close, .studio-dialog-return').forEach((button) => button.addEventListener('click', () => modal.close()));
-  modal.addEventListener('click', (event) => {
-    const bounds = modal.getBoundingClientRect();
-    if (event.target === modal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) modal.close();
-  });
-  modal.addEventListener('close', () => { document.body.classList.remove('modal-open'); opener?.focus({ preventScroll: true }); schedule(); });
   const experience = section.querySelector('.studio-experience');
   experience.addEventListener('focusin', (event) => { focused = event.target.matches(':focus-visible') && !play.contains(event.target); schedule(); });
   experience.addEventListener('focusout', () => queueMicrotask(() => { focused = experience.contains(document.activeElement) && document.activeElement.matches(':focus-visible') && !play.contains(document.activeElement); schedule(); }));
   document.addEventListener('visibilitychange', schedule);
+  window.addEventListener('pageshow', schedule);
   let resizeFrame;
   window.addEventListener('resize', () => {
     cancelAnimationFrame(resizeFrame);
