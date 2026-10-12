@@ -6,7 +6,6 @@
   const selectors = [...section.querySelectorAll('[data-studio-select]')];
   const play = section.querySelector('.studio-play');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const cursor = stage.querySelector('.studio-drag-cursor');
   let current = 0;
   let userPaused = motion.matches;
   let inView = false;
@@ -28,12 +27,7 @@
 
   function select(index, manual = true) {
     const next = (index + scenes.length) % scenes.length;
-    const direction = index > current ? 1 : -1;
     if (next !== current) {
-      // Stage the incoming layers before starting their parallax transition.
-      scenes[next].style.setProperty('--direction', String(direction));
-      void scenes[next].offsetWidth;
-      scenes[current].style.setProperty('--direction', String(-direction));
       if (scenes[current].contains(document.activeElement)) stage.focus({ preventScroll: true });
       current = next;
     }
@@ -70,7 +64,7 @@
     schedule();
   });
   stage.addEventListener('keydown', (event) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    if (event.altKey || event.ctrlKey || event.metaKey || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
     select(event.key === 'Home' ? 0 : event.key === 'End' ? scenes.length - 1 : current + (event.key === 'ArrowRight' ? 1 : -1));
   });
@@ -82,12 +76,6 @@
     schedule();
   });
   stage.addEventListener('pointermove', (event) => {
-    if (event.pointerType === 'mouse' && !motion.matches) {
-      const bounds = stage.getBoundingClientRect();
-      cursor.style.left = `${event.clientX - bounds.left}px`;
-      cursor.style.top = `${event.clientY - bounds.top}px`;
-      stage.classList.toggle('has-pointer', !event.target.closest('button, a'));
-    }
     if (!drag || event.pointerId !== drag.id) return;
     const dx = event.clientX - drag.x;
     const dy = event.clientY - drag.y;
@@ -107,6 +95,7 @@
     stage.classList.remove('is-dragging');
     if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
     schedule();
+    setTimeout(() => { suppressClick = false; }, 0);
   }
   stage.addEventListener('pointerup', finishDrag);
   stage.addEventListener('pointercancel', () => { drag = null; stage.classList.remove('is-dragging'); schedule(); });

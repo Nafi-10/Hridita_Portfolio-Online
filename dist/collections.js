@@ -4,11 +4,12 @@
   if (!section || !looks?.length) return;
   const gallery = section.querySelector('.collection-gallery');
   const scenes = [...section.querySelectorAll('.collection-scene')];
+  const models = [...section.querySelectorAll('[data-model-look]')];
   const dots = [...section.querySelectorAll('[data-select-look]')];
   const playButton = section.querySelector('.runway-play');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const interval = 7500;
-  const transitionDuration = 480;
+  const transitionDuration = 850;
   const number = (index) => String(index + 1).padStart(2, '0');
   let active = 0;
   let userPaused = motion.matches;
@@ -21,6 +22,42 @@
   let progress;
   let pointerStart;
   let suppressClick = false;
+  const normalize = (index) => (index % looks.length + looks.length) % looks.length;
+
+  function settleModels() {
+    models.forEach((model, index) => {
+      model.classList.add('is-reset');
+      model.dataset.slot = String(normalize(index - active));
+    });
+    // Commit the wrapped figures at the back of the runway without flying across it.
+    void gallery.offsetWidth;
+    models.forEach(model => model.classList.remove('is-reset'));
+  }
+
+  function moveModels(previous, next) {
+    const forward = normalize(next - previous);
+    const backwards = forward > looks.length / 2;
+    const steps = backwards ? looks.length - forward : forward;
+    if (backwards && !motion.matches) {
+      models.forEach((model, index) => {
+        if (normalize(index - previous) >= looks.length - steps) {
+          model.classList.add('is-reset');
+          model.dataset.slot = 'exit';
+        }
+      });
+      void gallery.offsetWidth;
+      models.forEach(model => model.classList.remove('is-reset'));
+    }
+    models.forEach((model, index) => {
+      const oldSlot = normalize(index - previous);
+      model.dataset.slot = !motion.matches && !backwards && oldSlot < steps ? 'exit' : String(normalize(index - next));
+      const selected = index === next;
+      model.tabIndex = selected ? 0 : -1;
+      model.setAttribute('aria-label', `${selected ? 'Open' : 'Select'} look ${number(index)}: ${looks[index].name}`);
+      if (selected) model.setAttribute('aria-current', 'true');
+      else model.removeAttribute('aria-current');
+    });
+  }
 
   function schedule() {
     clearTimeout(timer);
@@ -39,7 +76,7 @@
 
   function finishTransition() {
     clearTimeout(transitionTimer);
-    scenes.forEach(scene => scene.classList.remove('is-exiting'));
+    settleModels();
     transitioning = false;
     section.dataset.transitioning = 'false';
     if (queued !== undefined) {
@@ -50,15 +87,15 @@
   }
 
   function select(index, manual = true) {
-    const next = (index + looks.length) % looks.length;
+    const next = normalize(index);
     if (transitioning) { queued = next; return; }
     if (next === active) { schedule(); return; }
     const previous = scenes[active];
-    if (previous.contains(document.activeElement)) gallery.focus({ preventScroll: true });
+    if (previous.contains(document.activeElement) || models[active] === document.activeElement) gallery.focus({ preventScroll: true });
     previous.classList.remove('is-active');
-    previous.classList.add('is-exiting');
     previous.setAttribute('aria-hidden', 'true');
     previous.inert = true;
+    moveModels(active, next);
     active = next;
     scenes[active].classList.add('is-active');
     scenes[active].setAttribute('aria-hidden', 'false');
@@ -80,6 +117,13 @@
   // A swipe or an unfinished transition must not accidentally open a page.
   section.querySelectorAll('[data-open-look]').forEach(link => link.addEventListener('click', event => {
     if (suppressClick || transitioning) event.preventDefault();
+  }));
+  models.forEach((model, index) => model.addEventListener('click', event => {
+    if (suppressClick || transitioning) { event.preventDefault(); return; }
+    if (index !== active && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+      event.preventDefault();
+      select(index);
+    }
   }));
   dots.forEach(dot => dot.addEventListener('click', () => select(Number(dot.dataset.selectLook))));
   section.querySelector('.runway-next').addEventListener('click', () => select((queued ?? active) + 1));

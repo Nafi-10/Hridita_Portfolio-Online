@@ -11,12 +11,12 @@ Run `npm run dev` from this directory and open http://127.0.0.1:4173. No depende
 - `dist/index.html`: introduction, navigation, Collections markup, and dialogs.
 - `dist/styles.css`: colors, typography, responsive layouts, and animations.
 - `dist/app.js`: mobile navigation, upcoming-section dialogs, and pointer motion.
-- `dist/collections.css`: compact editorial compositions, paired thumbnail rows, single-slide entrance animations, and responsive controls.
+- `dist/collections.css`: layered model runway, fixed details panel, scaling/sliding transitions, and responsive controls.
 - `dist/collection-looks.js`: five selected looks, image identifiers, descriptive draft titles, captions, and photo credits.
 - `dist/collections.js`: five-look slideshow, autoplay, keyboard controls, drag/swipe, and links to editorial look pages.
 - `dist/about.css`: three-panel portrait composition, introduction, signature, and responsive About layout.
 - `dist/about.js`: one-time scroll reveals with reduced-motion support and a visible no-JavaScript fallback.
-- `dist/process.css`: seven editorial studio chapters, layered transitions, and responsive art direction.
+- `dist/process.css`: seven compact studio spreads, grouped copy, large process imagery, and supporting thumbnail rows.
 - `dist/process.js`: chapter selection, keyboard and swipe controls, playback, and links to the study pages.
 - `scripts/study-content.json`: editable headings, observations, captions, and steps for all seven atelier studies.
 - `scripts/build-studies.cjs`: generates the seven static `dist/study-*.html` pages; run `npm run build:studies` after content edits.
@@ -31,19 +31,19 @@ Motion respects the operating system’s reduced-motion preference. Dialogs supp
 
 ## Collections
 
-The latest reference, `a7bd2780-aa5d-43ba-a0dc-1da118122e73.mp4`, shows alternating large model cutouts, two staggered photographs, large central typography, and vertical transitions. The Collections section uses five user-supplied original looks. Following the October 13 spacing review, its layout groups the title, description, and CTA on the left with a paired thumbnail row below and a large featured model on the right. The wider canvas and shorter desktop section reduce empty space. On mobile the content, model, and thumbnails stack without overlap. The previous six-look runway layout and fictional AI looks are no longer displayed.
+The latest reference, `897d1962-67fc-44de-a40b-b891afa62152.mp4`, shows one large featured model with progressively smaller figures receding to the left. The Collections section applies this layered carousel to five user-supplied original looks. Figures slide and scale between positions while a separate right-hand panel presents the garment label, title, description, visible details, palette, original-photo thumbnails, and detail-page link. On mobile the model stage sits above the details. The full-list link stays between Previous and Next.
 
-Only the active slide is visible during the brief entrance animation, preventing overlapping titles and buttons. Existing autoplay, pause/play, keyboard and swipe navigation, and look-page links remain available. The gallery uses 16–17px descriptions, clear garment labels, numbered selection buttons, and labelled playback/navigation controls. Descriptions and editorial look pages use plain language and stronger contrast.
+Only the active details panel is visible during its brief entrance animation, preventing overlapping titles and buttons. All five model figures remain in the runway, with the largest figure representing the current selection. Selecting a smaller figure brings it forward; selecting the featured figure or a photo opens the existing editorial look page. The gallery uses 15–16px descriptions, numbered selection buttons, and labelled playback/navigation controls.
 
 The main figures use ImageGen background extractions of the supplied photographs. The inset photographs and photo dialogs use byte-for-byte copies of the original files, including the Memory Mirage watermark on the first photograph. Editorial look titles and descriptions are draft labels based on visible clothing details, not verified collection names or claims about materials. File mappings and exact editing prompts are recorded in `collections-photo-provenance.md`.
 
-Playback starts automatically while the gallery is visible, waits 7.5 seconds on each settled composition, then uses a 1.2-second vertical transition. Hover and manual selection preserve playback. Pause keeps it stopped until Play is pressed. Keyboard focus, a drag, a hidden tab, and transitions temporarily suspend the timer. Use the five pagination buttons, Previous/Next, Left/Right, Home/End, or a horizontal drag/swipe to navigate; vertical touch scrolling stays native. Rapid requests queue the final destination. Reduced-motion visitors start paused and see immediate changes. Selecting a photo or “View photo & details” opens its dedicated editorial look page.
+Playback starts automatically while the gallery is visible, waits 7.5 seconds on each settled composition, then uses an 850ms sliding/scaling transition. Figures wrapping from front to back reset offscreen so they do not cross the lineup. Hover and manual selection preserve playback. Pause keeps it stopped until Play is pressed. Keyboard focus, a drag, a hidden tab, and transitions temporarily suspend the timer. Use the five pagination buttons, Previous/Next, Left/Right, Home/End, or a horizontal drag/swipe to navigate; vertical touch scrolling stays native. Rapid requests queue the final destination. Reduced-motion visitors start paused and see immediate changes.
 
 On Windows, prepend the installed `C:\Program Files\Git\bin` to the environment PATH and set `TAR_OPTIONS=--force-local` when invoking the official Sites source helper. These settings allow its Bash packager to handle Windows archive paths.
 
 ## Creative process / Studio journal
 
-The section after About follows the supplied video's horizontal editorial transitions, overlapping rectangular photographs, varied typography, and chapter counter. It intentionally excludes the screenshot's central cutout-model layout. Seven chapters cover Sketches, Mood boards, Fabric swatches, Pattern-making, Fittings, Photoshoot, and Crafts. The main Process navigation links to `#process`.
+The section after About adapts the compact Collections layout approved during the spacing review: heading, description, and study button grouped on the left; a large process image on the right; and two supporting thumbnails below the copy. This consistent composition covers Sketches, Mood boards, Fabric swatches, Pattern-making, Fittings, Photoshoot, and Crafts. The main Process navigation links to `#process`. On mobile, copy, image, and thumbnails stack vertically and the chapter navigation scrolls horizontally. A short entrance animation keeps the chapter change gentle, with only one readable scene visible.
 
 Choose a chapter, drag/swipe horizontally, or use Previous/Next. When the stage has keyboard focus, Left/Right and Home/End navigate. Inactive scenes are inert and hidden from assistive technology. Vertical touch scrolling stays native. Playback starts automatically and advances every 6.5 seconds while visible. Hover and manual chapter selection preserve playback; Pause keeps it stopped until Play is pressed. A drag, keyboard navigation, or hidden page temporarily suspends cycling. Reduced-motion preferences start playback paused, disable transitions, and pause playback when enabled.
 
